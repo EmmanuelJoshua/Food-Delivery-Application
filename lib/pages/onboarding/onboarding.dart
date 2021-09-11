@@ -1,4 +1,5 @@
-import 'package:cloudfift_assessment/utils/colors.dart';
+import 'package:cloudfift_assessment/pages/authentication/signup.dart';
+import 'package:cloudfift_assessment/utils/navigator.dart';
 import 'package:cloudfift_assessment/utils/size_config.dart';
 import 'package:cloudfift_assessment/widgets/buttons.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -42,7 +43,7 @@ class _OnboardingState extends State<Onboarding> {
                   width: getProportionateResponsiveSize(72),
                 ),
                 SizedBox(
-                  height: getProportionateResponsiveSize(65),
+                  height: getProportionateResponsiveSize(70),
                 ),
                 SizedBox(
                   width: getProportionateResponsiveSize(330),
@@ -79,10 +80,13 @@ class _OnboardingState extends State<Onboarding> {
                   ),
                 ),
                 SizedBox(
-                  height: getProportionateResponsiveSize(20),
+                  height: getProportionateResponsiveSize(15),
                 ),
                 DefaultButton(
                   text: 'Sign up',
+                  onPress: () {
+                    navigator.pushTo(SignUp());
+                  },
                 ),
                 SizedBox(
                   height: getProportionateResponsiveSize(20),
@@ -117,22 +121,4 @@ class _OnboardingState extends State<Onboarding> {
 //           SizedBox(
 //             height: 20,
 //           ),
-//           SizedBox(
-//             width: 130,
-//             child: DefaultButtonSocial(
-//               text: 'Google',
-//               iconAsset: 'assets/icon_images/google_icon.svg',
-//               // color: buttonTwoColor,
-//             ),
-//           ),
-//           SizedBox(
-//             height: 20,
-//           ),
-//           SizedBox(
-//             width: 130,
-//             child: DefaultButtonSocial(
-//               text: 'Facebook',
-//               iconAsset: 'assets/icon_images/facebook_icon.svg',
-//               color: facebookButtonColor,
-//             ),
-//           ),
+        

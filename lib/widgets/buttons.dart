@@ -148,7 +148,7 @@ class DefaultButtonSocial extends StatelessWidget {
     SizeConfig().init(context);
     return SizedBox(
       width: double.infinity,
-      height: getProportionateResponsiveSize(46),
+      height: getProportionateResponsiveSize(41),
       child: RawMaterialButton(
         shape: color != null
             ? RoundedRectangleBorder(
