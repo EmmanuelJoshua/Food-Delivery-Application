@@ -9,7 +9,7 @@ import 'colors.dart';
 void overrideDeviceColors([Color color]) {
   SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
     /* set Status bar color in Android devices. */
-    statusBarColor: Colors.transparent,
+    // statusBarColor: Colors.transparent,
     /* set Status bar icons color in Android devices.*/
     statusBarIconBrightness:
         Platform.isIOS ? Brightness.light : Brightness.light,

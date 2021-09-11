@@ -35,7 +35,7 @@ class SplashScreen extends StatefulWidget {
 class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
-    // load();
+    load();
     super.initState();
   }
 
@@ -62,7 +62,11 @@ class _SplashScreenState extends State<SplashScreen> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Spacer(),
+              SizedBox(
+                height: getProportionateResponsiveSize(80),
+              ),
               Expanded(
+                flex: 2,
                 child: Stack(
                   children: [
                     Center(
@@ -73,7 +77,7 @@ class _SplashScreenState extends State<SplashScreen> {
                       ),
                     ),
                     Positioned(
-                      top: 0,
+                      top: 20,
                       left: 50,
                       child: Opacity(
                         opacity: 0.2,
@@ -85,7 +89,7 @@ class _SplashScreenState extends State<SplashScreen> {
                       ),
                     ),
                     Positioned(
-                      top: 0,
+                      top: 20,
                       right: 50,
                       child: Opacity(
                         opacity: 0.2,
@@ -97,7 +101,7 @@ class _SplashScreenState extends State<SplashScreen> {
                       ),
                     ),
                     Positioned(
-                      bottom: 0,
+                      bottom: 20,
                       left: 50,
                       child: Opacity(
                         opacity: 0.1,
@@ -109,7 +113,7 @@ class _SplashScreenState extends State<SplashScreen> {
                       ),
                     ),
                     Positioned(
-                      bottom: 0,
+                      bottom: 20,
                       right: 50,
                       child: Container(
                         child: Image.asset('assets/images/splash_bg2.png'),

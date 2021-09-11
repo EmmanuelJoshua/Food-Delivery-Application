@@ -20,7 +20,6 @@ class AppNav {
     bool isDialog = false,
   }) {
     popView();
-    print('Nav: Current Route -> ${(route.runtimeType)}');
     return state.push(PageTransition(
       type: PageTransitionType.fade,
       alignment: Alignment.center,
@@ -31,8 +30,6 @@ class AppNav {
 
   /// Push a named route
   void pushTop(String routeName) {
-    print('Nav: Current Route -> ${(routeName)}');
-
     state.pushNamed(routeName);
   }
 
@@ -93,8 +90,6 @@ class AppNav {
     bool isDialog = false,
     bool isTransparent = false,
   }) {
-    print('Nav: Current Route -> ${(widget.runtimeType)}');
-
     return isTransparent
         ? TransparentRoute(
             builder: (context) => widget,
@@ -153,8 +148,6 @@ class FadeInRoute<T> extends MaterialPageRoute<T> {
   Widget buildTransitions(BuildContext context, Animation<double> animation,
       Animation<double> secondaryAnimation, Widget child) {
     if (settings.name == '/') return child;
-    // Fades between routes. (If you don't want any animation,
-    // just return child.)
     return FadeTransition(opacity: animation, child: child);
   }
 }
