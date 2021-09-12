@@ -1,12 +1,17 @@
+import 'package:cloudfift_assessment/constants/routing_constant.dart';
+import 'package:cloudfift_assessment/locator.dart';
+import 'package:cloudfift_assessment/router.dart';
+import 'package:cloudfift_assessment/services/navigation_services.dart';
 import 'package:cloudfift_assessment/utils/colors.dart';
 import 'package:cloudfift_assessment/utils/size_config.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'utils/theme.dart';
-import 'utils/navigator.dart';
-import 'pages/onboarding/onboarding.dart';
 
 void main() {
+  //Setup the get it locator
+  setupLocator();
+
   runApp(MyApp());
 }
 
@@ -19,7 +24,8 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
       theme: context.themeData,
-      navigatorKey: navigator.key,
+      onGenerateRoute: AppRouter.generateRoute,
+      navigatorKey: locator<NavigationService>().navigatorKey,
       home: SplashScreen(),
     );
   }
@@ -33,6 +39,8 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
+  final NavigationService _navigationService = locator<NavigationService>();
+
   @override
   void initState() {
     load();
@@ -41,7 +49,7 @@ class _SplashScreenState extends State<SplashScreen> {
 
   void load() async {
     await Future.delayed(Duration(seconds: 4));
-    navigator.navigateFromSplash(Onboarding());
+    _navigationService.navigateToReplace(OnboardingViewRoute);
   }
 
   @override

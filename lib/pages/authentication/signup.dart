@@ -1,6 +1,8 @@
+import 'package:cloudfift_assessment/constants/routing_constant.dart';
+import 'package:cloudfift_assessment/locator.dart';
 import 'package:cloudfift_assessment/pages/home/home.dart';
+import 'package:cloudfift_assessment/services/navigation_services.dart';
 import 'package:cloudfift_assessment/utils/colors.dart';
-import 'package:cloudfift_assessment/utils/navigator.dart';
 import 'package:cloudfift_assessment/utils/size_config.dart';
 import 'package:cloudfift_assessment/widgets/buttons.dart';
 import 'package:cloudfift_assessment/widgets/textfields.dart';
@@ -14,6 +16,16 @@ class SignUp extends StatefulWidget {
 }
 
 class _SignUpState extends State<SignUp> {
+  final NavigationService _navigationService = locator<NavigationService>();
+
+  void toHome() {
+    _navigationService.navigateToReplace(HomepageViewRoute);
+  }
+
+  void goBack() {
+    _navigationService.goBack();
+  }
+
   int currentPage = 0;
   @override
   Widget build(BuildContext context) {
@@ -29,7 +41,7 @@ class _SignUpState extends State<SignUp> {
           children: <Widget>[
             InkWell(
               onTap: () {
-                navigator.popView();
+                goBack();
               },
               child: Container(
                 child: SvgPicture.asset(
@@ -46,12 +58,12 @@ class _SignUpState extends State<SignUp> {
             padding: EdgeInsets.only(top: 18, right: 20),
             child: InkWell(
               onTap: () {
-                navigator.pushTo(Home());
+                toHome();
               },
               child: Text('Skip Here',
                   style: GoogleFonts.lato(
                       color: textColor,
-                      fontSize: 16,
+                      fontSize: getProportionateResponsiveSize(17),
                       fontWeight: FontWeight.w400)),
             ),
           )
@@ -64,33 +76,33 @@ class _SignUpState extends State<SignUp> {
           Text('Sign up',
               style: GoogleFonts.lato(
                 color: textColor,
-                fontSize: 34,
+                fontSize: getProportionateResponsiveSize(35),
                 fontWeight: FontWeight.w700,
               )),
           SizedBox(
-            height: 15,
+            height: getProportionateResponsiveSize(15),
           ),
           Text('Complete the required registration details',
               style: GoogleFonts.lato(
                 color: textColor,
-                fontSize: 16,
+                fontSize: getProportionateResponsiveSize(16),
                 fontWeight: FontWeight.w400,
               )),
           SizedBox(
-            height: 25,
+            height: getProportionateResponsiveSize(25),
           ),
           _signUpForm(context),
           SizedBox(
-            height: 25,
+            height: getProportionateResponsiveSize(25),
           ),
           DefaultButton(
             text: 'Continue',
             onPress: () {
-              navigator.pushTo(Home());
+              toHome();
             },
           ),
           SizedBox(
-            height: 20,
+            height: getProportionateResponsiveSize(25),
           ),
           Row(
             crossAxisAlignment: CrossAxisAlignment.center,
@@ -105,19 +117,19 @@ class _SignUpState extends State<SignUp> {
                 ),
               ),
               SizedBox(
-                width: 10,
+                width: getProportionateResponsiveSize(12),
               ),
               Padding(
                 padding: const EdgeInsets.only(bottom: 4),
                 child: Text('or continue with',
                     style: GoogleFonts.lato(
                       color: textColor3,
-                      fontSize: 14,
+                      fontSize: getProportionateResponsiveSize(15),
                       fontWeight: FontWeight.w400,
                     )),
               ),
               SizedBox(
-                width: 10,
+                width: getProportionateResponsiveSize(12),
               ),
               Expanded(
                 child: Opacity(
@@ -131,13 +143,13 @@ class _SignUpState extends State<SignUp> {
             ],
           ),
           SizedBox(
-            height: 21,
+            height: getProportionateResponsiveSize(22),
           ),
           Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               SizedBox(
-                width: 148,
+                width: getProportionateResponsiveSize(149),
                 child: DefaultButtonSocial(
                   text: 'Google',
                   iconAsset: 'assets/icon_images/google_icon.svg',
@@ -145,7 +157,7 @@ class _SignUpState extends State<SignUp> {
                 ),
               ),
               SizedBox(
-                width: 148,
+                width: getProportionateResponsiveSize(149),
                 child: DefaultButtonSocial(
                   text: 'Facebook',
                   iconAsset: 'assets/icon_images/facebook_icon.svg',
@@ -155,7 +167,7 @@ class _SignUpState extends State<SignUp> {
             ],
           ),
           SizedBox(
-            height: 50,
+            height: getProportionateResponsiveSize(50),
           ),
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -163,22 +175,22 @@ class _SignUpState extends State<SignUp> {
               Text('Already have an Account?',
                   style: GoogleFonts.lato(
                     color: textColor,
-                    fontSize: 16,
+                    fontSize: getProportionateResponsiveSize(16),
                     fontWeight: FontWeight.w500,
                   )),
               SizedBox(
-                height: 17,
+                height: getProportionateResponsiveSize(17),
               ),
               Row(
                 children: [
                   Text('LOGIN',
                       style: GoogleFonts.lato(
                         color: Color(0xFFF15A24),
-                        fontSize: 16,
+                        fontSize: getProportionateResponsiveSize(17),
                         fontWeight: FontWeight.w500,
                       )),
                   SizedBox(
-                    width: 2,
+                    width: getProportionateResponsiveSize(2),
                   ),
                   Container(
                     child: RotatedBox(
@@ -192,7 +204,10 @@ class _SignUpState extends State<SignUp> {
                     ),
                   ),
                 ],
-              )
+              ),
+              SizedBox(
+                height: getProportionateResponsiveSize(20),
+              ),
             ],
           )
         ],
@@ -206,7 +221,7 @@ class _SignUpState extends State<SignUp> {
       children: [
         _numberIndicator(),
         SizedBox(
-          height: 35,
+          height: 30,
         ),
         _form(),
         SizedBox(

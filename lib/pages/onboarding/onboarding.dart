@@ -1,5 +1,7 @@
+import 'package:cloudfift_assessment/constants/routing_constant.dart';
+import 'package:cloudfift_assessment/locator.dart';
 import 'package:cloudfift_assessment/pages/authentication/signup.dart';
-import 'package:cloudfift_assessment/utils/navigator.dart';
+import 'package:cloudfift_assessment/services/navigation_services.dart';
 import 'package:cloudfift_assessment/utils/size_config.dart';
 import 'package:cloudfift_assessment/widgets/buttons.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -12,6 +14,12 @@ class Onboarding extends StatefulWidget {
 }
 
 class _OnboardingState extends State<Onboarding> {
+  final NavigationService _navigationService = locator<NavigationService>();
+
+  void toSignup() {
+    _navigationService.navigateToReplace(SignupViewRoute);
+  }
+
   @override
   Widget build(BuildContext context) {
     SizeConfig().init(context);
@@ -85,7 +93,7 @@ class _OnboardingState extends State<Onboarding> {
                 DefaultButton(
                   text: 'Sign up',
                   onPress: () {
-                    navigator.pushTo(SignUp());
+                    toSignup();
                   },
                 ),
                 SizedBox(
