@@ -23,6 +23,7 @@ class DefaultButton extends StatelessWidget {
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(12),
         ),
+        elevation: 0,
         fillColor: primaryColor,
         onPressed: onPress,
         child: Text(
@@ -94,7 +95,6 @@ class DefaultButtonIcon extends StatelessWidget {
   Widget build(BuildContext context) {
     SizeConfig().init(context);
     return SizedBox(
-      width: double.infinity,
       height: getProportionateResponsiveSize(46),
       child: RawMaterialButton(
         shape: RoundedRectangleBorder(
@@ -109,6 +109,7 @@ class DefaultButtonIcon extends StatelessWidget {
               Container(
                 child: SvgPicture.asset(
                   iconAsset,
+                  color: isLight ? Colors.white : textColor2,
                 ),
               ),
               SizedBox(

@@ -1,4 +1,4 @@
-import 'package:cloudfift_assessment/pages/home/homescreen.dart';
+import 'package:cloudfift_assessment/pages/home/home.dart';
 import 'package:cloudfift_assessment/utils/colors.dart';
 import 'package:cloudfift_assessment/utils/navigator.dart';
 import 'package:cloudfift_assessment/utils/size_config.dart';
@@ -46,7 +46,7 @@ class _SignUpState extends State<SignUp> {
             padding: EdgeInsets.only(top: 18, right: 20),
             child: InkWell(
               onTap: () {
-                navigator.pushTo(HomeScreen());
+                navigator.pushTo(Home());
               },
               child: Text('Skip Here',
                   style: GoogleFonts.lato(
@@ -86,7 +86,7 @@ class _SignUpState extends State<SignUp> {
           DefaultButton(
             text: 'Continue',
             onPress: () {
-              navigator.pushTo(HomeScreen());
+              navigator.pushTo(Home());
             },
           ),
           SizedBox(
