@@ -37,82 +37,86 @@ class _HomePageState extends State<HomePage> {
               titleSpacing: 0.0,
               automaticallyImplyLeading: false,
               toolbarHeight: 60,
-              title: Column(
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.only(left: 16, right: 16),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Container(
-                          padding: EdgeInsets.only(top: 6),
-                          child: SvgPicture.asset(
-                            'assets/icon_images/profile_icon.svg',
-                            height: 23,
-                          ),
-                        ),
-                        Column(
-                          children: [
-                            SizedBox(
-                              height: 11,
+              title: GestureDetector(
+                onTap: () => FocusScope.of(context).unfocus(),
+                child: Column(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(left: 16, right: 16),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Container(
+                            padding: EdgeInsets.only(top: 6),
+                            child: SvgPicture.asset(
+                              'assets/icon_images/profile_icon.svg',
+                              height: 23,
                             ),
-                            Text('Delivering To',
-                                style: GoogleFonts.lato(
-                                    color: primaryColor,
-                                    fontSize: 13,
-                                    fontWeight: FontWeight.w700)),
-                            Row(
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: [
-                                Text('170, Apata street, Somolu',
-                                    style: GoogleFonts.lato(
-                                        color: textColor,
-                                        fontSize: 16,
-                                        fontWeight: FontWeight.w700)),
-                                Container(
-                                  padding: EdgeInsets.only(top: 4),
-                                  child: RotatedBox(
-                                    quarterTurns: 3,
-                                    child: SvgPicture.asset(
-                                      'assets/icon_images/chevron_left_icon.svg',
-                                      color: textColor2,
-                                      height:
-                                          getProportionateResponsiveSize(14),
-                                      width: getProportionateResponsiveSize(14),
+                          ),
+                          Column(
+                            children: [
+                              SizedBox(
+                                height: 11,
+                              ),
+                              Text('Delivering To',
+                                  style: GoogleFonts.lato(
+                                      color: primaryColor,
+                                      fontSize: 13,
+                                      fontWeight: FontWeight.w700)),
+                              Row(
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: [
+                                  Text('170, Apata street, Somolu',
+                                      style: GoogleFonts.lato(
+                                          color: textColor,
+                                          fontSize: 16,
+                                          fontWeight: FontWeight.w700)),
+                                  Container(
+                                    padding: EdgeInsets.only(top: 4),
+                                    child: RotatedBox(
+                                      quarterTurns: 3,
+                                      child: SvgPicture.asset(
+                                        'assets/icon_images/chevron_left_icon.svg',
+                                        color: textColor2,
+                                        height:
+                                            getProportionateResponsiveSize(14),
+                                        width:
+                                            getProportionateResponsiveSize(14),
+                                      ),
                                     ),
                                   ),
-                                ),
-                              ],
-                            ),
-                          ],
-                        ),
-                        Container(
-                          padding: EdgeInsets.only(top: 6),
-                          child: SvgPicture.asset(
-                            'assets/icon_images/notification_icon.svg',
-                            height: 23,
+                                ],
+                              ),
+                            ],
                           ),
-                        )
+                          Container(
+                            padding: EdgeInsets.only(top: 6),
+                            child: SvgPicture.asset(
+                              'assets/icon_images/notification_icon.svg',
+                              height: 23,
+                            ),
+                          )
+                        ],
+                      ),
+                    ),
+                    SizedBox(
+                      height: 6,
+                    ),
+                    Row(
+                      children: [
+                        Expanded(
+                          child: Container(
+                            color: Color(0xFFE0E0E0),
+                            height: 1.1,
+                          ),
+                        ),
                       ],
                     ),
-                  ),
-                  SizedBox(
-                    height: 6,
-                  ),
-                  Row(
-                    children: [
-                      Expanded(
-                        child: Container(
-                          color: Color(0xFFE0E0E0),
-                          height: 1.1,
-                        ),
-                      ),
-                    ],
-                  ),
-                ],
+                  ],
+                ),
               ),
               bottom: PreferredSize(
-                  preferredSize: Size.fromHeight(145.0),
+                  preferredSize: Size.fromHeight(140.0),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.start,
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -133,65 +137,68 @@ class _HomePageState extends State<HomePage> {
                   )),
             ),
             SliverFillRemaining(
-              child: SingleChildScrollView(
-                child: Column(
-                  children: [
-                    //For building the first banner widget
-                    _buildBanner(),
-                    ...[
-                      SizedBox(
-                        height: 10,
-                      ),
-                      Container(
-                        height: 12,
-                        color: authBgColor,
-                      ),
-                      SizedBox(
-                        height: 10,
-                      ),
+              child: GestureDetector(
+                onTap: () => FocusScope.of(context).unfocus(),
+                child: SingleChildScrollView(
+                  child: Column(
+                    children: [
+                      //For building the first banner widget
+                      _buildBanner(),
+                      ...[
+                        SizedBox(
+                          height: 10,
+                        ),
+                        Container(
+                          height: 12,
+                          color: authBgColor,
+                        ),
+                        SizedBox(
+                          height: 10,
+                        ),
+                      ],
+                      _buildNewFoodToTry(),
+                      ...[
+                        SizedBox(
+                          height: 10,
+                        ),
+                        Container(
+                          height: 12,
+                          color: authBgColor,
+                        ),
+                        SizedBox(
+                          height: 10,
+                        ),
+                      ],
+                      _buildClosestFood(),
+                      ...[
+                        SizedBox(
+                          height: 10,
+                        ),
+                        Container(
+                          height: 12,
+                          color: authBgColor,
+                        ),
+                        SizedBox(
+                          height: 10,
+                        ),
+                      ],
+                      _buildSpecialOffers(),
+                      ...[
+                        SizedBox(
+                          height: 10,
+                        ),
+                        Container(
+                          height: 12,
+                          color: authBgColor,
+                        ),
+                        SizedBox(
+                          height: 10,
+                        ),
+                      ],
+                      //For building the list of restaurants
+                      _buildRestaurantList()
                     ],
-                    _buildNewFoodToTry(),
-                    ...[
-                      SizedBox(
-                        height: 10,
-                      ),
-                      Container(
-                        height: 12,
-                        color: authBgColor,
-                      ),
-                      SizedBox(
-                        height: 10,
-                      ),
-                    ],
-                    _buildClosestFood(),
-                    ...[
-                      SizedBox(
-                        height: 10,
-                      ),
-                      Container(
-                        height: 12,
-                        color: authBgColor,
-                      ),
-                      SizedBox(
-                        height: 10,
-                      ),
-                    ],
-                    _buildSpecialOffers(),
-                    ...[
-                      SizedBox(
-                        height: 10,
-                      ),
-                      Container(
-                        height: 12,
-                        color: authBgColor,
-                      ),
-                      SizedBox(
-                        height: 10,
-                      ),
-                    ],
-                    //For building the list of restaurants
-                    _buildRestaurantList()
-                  ],
+                  ),
                 ),
               ),
             )
@@ -231,7 +238,7 @@ class _HomePageState extends State<HomePage> {
 
   Widget _buildBanner() {
     return Container(
-      height: 140,
+      height: getProportionateScreenHeight(140),
       width: double.infinity,
       margin: const EdgeInsets.only(left: 19, right: 19, top: 10),
       padding: const EdgeInsets.only(left: 15, top: 19),
@@ -311,11 +318,11 @@ class _HomePageState extends State<HomePage> {
           ),
         ),
         SizedBox(
-          height: 15,
+          height: getProportionateScreenHeight(15),
         ),
         Container(
             padding: const EdgeInsets.only(left: 19),
-            height: 186,
+            height: getProportionateScreenHeight(188),
             child: ListView.builder(
               itemCount: 2,
               scrollDirection: Axis.horizontal,
@@ -354,17 +361,17 @@ class _HomePageState extends State<HomePage> {
           ),
         ),
         SizedBox(
-          height: 15,
+          height: getProportionateScreenHeight(15),
         ),
         Container(
             padding: const EdgeInsets.only(left: 19),
-            height: 186,
+            height: getProportionateScreenHeight(188),
             child: ListView.builder(
               itemCount: 2,
               scrollDirection: Axis.horizontal,
               itemBuilder: (context, index) {
                 return FoodCard(
-                    imageAsset: 'assets/images/home_image2.png',
+                    imageAsset: 'assets/images/home_image${index + 3}.jpg',
                     foodName: foodList2[index]);
               },
             ))
@@ -401,13 +408,13 @@ class _HomePageState extends State<HomePage> {
         ),
         Container(
             padding: const EdgeInsets.only(left: 19),
-            height: 186,
+            height: getProportionateScreenHeight(188),
             child: ListView.builder(
               itemCount: 2,
               scrollDirection: Axis.horizontal,
               itemBuilder: (context, index) {
                 return FoodCard(
-                  imageAsset: 'assets/images/home_image2.png',
+                  imageAsset: 'assets/images/home_image${index + 4}.jpg',
                   foodName: foodList3[index],
                   isSpecialOffer: true,
                 );
@@ -449,7 +456,7 @@ class _HomePageState extends State<HomePage> {
           physics: NeverScrollableScrollPhysics(),
           itemBuilder: (context, index) {
             return RestaurantCard(
-              imageAsset: 'assets/images/home_image2.png',
+              imageAsset: 'assets/images/home_image${index + 4}.jpg',
               restaurantName: restaurantList[index],
             );
           },

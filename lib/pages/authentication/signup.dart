@@ -39,8 +39,8 @@ class _SignUpState extends State<SignUp> {
                     child: SvgPicture.asset(
                       'assets/icon_images/chevron_left_icon.svg',
                     ),
-                    height: getProportionateResponsiveSize(26),
-                    width: getProportionateResponsiveSize(26),
+                    height: getProportionateScreenHeight(26),
+                    width: getProportionateScreenWidth(26),
                   ),
                 ),
               ],
@@ -62,147 +62,150 @@ class _SignUpState extends State<SignUp> {
             ],
           ),
           backgroundColor: authBgColor,
-          body: ListView(
-            padding: const EdgeInsets.only(left: 25, right: 25, top: 30),
-            children: [
-              Text('Sign up',
-                  style: GoogleFonts.lato(
-                    color: textColor,
-                    fontSize: getProportionateResponsiveSize(35),
-                    fontWeight: FontWeight.w700,
-                  )),
-              SizedBox(
-                height: getProportionateResponsiveSize(15),
-              ),
-              Text('Complete the required registration details',
-                  style: GoogleFonts.lato(
-                    color: textColor,
-                    fontSize: getProportionateResponsiveSize(16),
-                    fontWeight: FontWeight.w400,
-                  )),
-              SizedBox(
-                height: getProportionateResponsiveSize(25),
-              ),
-              _signUpForm(context),
-              SizedBox(
-                height: getProportionateResponsiveSize(25),
-              ),
-              DefaultButton(
-                text: 'Continue',
-                onPress: () {
-                  model.toHome();
-                },
-              ),
-              SizedBox(
-                height: getProportionateResponsiveSize(25),
-              ),
-              Row(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Expanded(
-                    child: Opacity(
-                      opacity: 0.2,
-                      child: Container(
-                        color: randomColor,
-                        height: 1.3,
-                      ),
-                    ),
-                  ),
-                  SizedBox(
-                    width: getProportionateResponsiveSize(12),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(bottom: 4),
-                    child: Text('or continue with',
-                        style: GoogleFonts.lato(
-                          color: textColor3,
-                          fontSize: getProportionateResponsiveSize(15),
-                          fontWeight: FontWeight.w400,
-                        )),
-                  ),
-                  SizedBox(
-                    width: getProportionateResponsiveSize(12),
-                  ),
-                  Expanded(
-                    child: Opacity(
-                      opacity: 0.2,
-                      child: Container(
-                        color: randomColor,
-                        height: 1.3,
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-              SizedBox(
-                height: getProportionateResponsiveSize(22),
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [
-                  SizedBox(
-                    width: getProportionateResponsiveSize(149),
-                    child: DefaultButtonSocial(
-                      text: 'Google',
-                      iconAsset: 'assets/icon_images/google_icon.svg',
-                      // color: buttonTwoColor,
-                    ),
-                  ),
-                  SizedBox(
-                    width: getProportionateResponsiveSize(149),
-                    child: DefaultButtonSocial(
-                      text: 'Facebook',
-                      iconAsset: 'assets/icon_images/facebook_icon.svg',
-                      color: facebookButtonColor,
-                    ),
-                  ),
-                ],
-              ),
-              SizedBox(
-                height: getProportionateResponsiveSize(50),
-              ),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text('Already have an Account?',
-                      style: GoogleFonts.lato(
-                        color: textColor,
-                        fontSize: getProportionateResponsiveSize(16),
-                        fontWeight: FontWeight.w500,
-                      )),
-                  SizedBox(
-                    height: getProportionateResponsiveSize(17),
-                  ),
-                  Row(
-                    children: [
-                      Text('LOGIN',
-                          style: GoogleFonts.lato(
-                            color: Color(0xFFF15A24),
-                            fontSize: getProportionateResponsiveSize(17),
-                            fontWeight: FontWeight.w500,
-                          )),
-                      SizedBox(
-                        width: getProportionateResponsiveSize(2),
-                      ),
-                      Container(
-                        child: RotatedBox(
-                          quarterTurns: 2,
-                          child: SvgPicture.asset(
-                            'assets/icon_images/chevron_left_icon.svg',
-                            color: Color(0xFFF15A24),
-                            height: getProportionateResponsiveSize(19),
-                            width: getProportionateResponsiveSize(19),
-                          ),
+          body: GestureDetector(
+            onTap: () => FocusScope.of(context).unfocus(),
+            child: ListView(
+              padding: const EdgeInsets.only(left: 25, right: 25, top: 30),
+              children: [
+                Text('Sign up',
+                    style: GoogleFonts.lato(
+                      color: textColor,
+                      fontSize: getProportionateResponsiveSize(35),
+                      fontWeight: FontWeight.w700,
+                    )),
+                SizedBox(
+                  height: getProportionateScreenHeight(15),
+                ),
+                Text('Complete the required registration details',
+                    style: GoogleFonts.lato(
+                      color: textColor,
+                      fontSize: getProportionateResponsiveSize(16),
+                      fontWeight: FontWeight.w400,
+                    )),
+                SizedBox(
+                  height: getProportionateScreenHeight(25),
+                ),
+                _signUpForm(context),
+                SizedBox(
+                  height: getProportionateScreenHeight(25),
+                ),
+                DefaultButton(
+                  text: 'Continue',
+                  onPress: () {
+                    model.toHome();
+                  },
+                ),
+                SizedBox(
+                  height: getProportionateScreenHeight(25),
+                ),
+                Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Expanded(
+                      child: Opacity(
+                        opacity: 0.2,
+                        child: Container(
+                          color: randomColor,
+                          height: 1.3,
                         ),
                       ),
-                    ],
-                  ),
-                  SizedBox(
-                    height: getProportionateResponsiveSize(20),
-                  ),
-                ],
-              )
-            ],
+                    ),
+                    SizedBox(
+                      width: getProportionateScreenWidth(12),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(bottom: 4),
+                      child: Text('or continue with',
+                          style: GoogleFonts.lato(
+                            color: textColor3,
+                            fontSize: getProportionateResponsiveSize(15),
+                            fontWeight: FontWeight.w400,
+                          )),
+                    ),
+                    SizedBox(
+                      width: getProportionateScreenWidth(12),
+                    ),
+                    Expanded(
+                      child: Opacity(
+                        opacity: 0.2,
+                        child: Container(
+                          color: randomColor,
+                          height: 1.3,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+                SizedBox(
+                  height: getProportionateScreenHeight(22),
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                    SizedBox(
+                      width: getProportionateScreenWidth(149),
+                      child: DefaultButtonSocial(
+                        text: 'Google',
+                        iconAsset: 'assets/icon_images/google_icon.svg',
+                        // color: buttonTwoColor,
+                      ),
+                    ),
+                    SizedBox(
+                      width: getProportionateScreenWidth(149),
+                      child: DefaultButtonSocial(
+                        text: 'Facebook',
+                        iconAsset: 'assets/icon_images/facebook_icon.svg',
+                        color: facebookButtonColor,
+                      ),
+                    ),
+                  ],
+                ),
+                SizedBox(
+                  height: getProportionateScreenHeight(50),
+                ),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text('Already have an Account?',
+                        style: GoogleFonts.lato(
+                          color: textColor,
+                          fontSize: getProportionateResponsiveSize(16),
+                          fontWeight: FontWeight.w500,
+                        )),
+                    SizedBox(
+                      height: getProportionateScreenHeight(17),
+                    ),
+                    Row(
+                      children: [
+                        Text('LOGIN',
+                            style: GoogleFonts.lato(
+                              color: Color(0xFFF15A24),
+                              fontSize: getProportionateResponsiveSize(17),
+                              fontWeight: FontWeight.w500,
+                            )),
+                        SizedBox(
+                          width: getProportionateResponsiveSize(2),
+                        ),
+                        Container(
+                          child: RotatedBox(
+                            quarterTurns: 2,
+                            child: SvgPicture.asset(
+                              'assets/icon_images/chevron_left_icon.svg',
+                              color: Color(0xFFF15A24),
+                              height: getProportionateResponsiveSize(19),
+                              width: getProportionateResponsiveSize(19),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                    SizedBox(
+                      height: getProportionateScreenHeight(20),
+                    ),
+                  ],
+                )
+              ],
+            ),
           ),
         );
       },
@@ -216,11 +219,11 @@ class _SignUpState extends State<SignUp> {
       children: [
         _numberIndicator(),
         SizedBox(
-          height: 30,
+          height: getProportionateScreenHeight(30),
         ),
         _form(),
         SizedBox(
-          height: 35,
+          height: getProportionateScreenHeight(35),
         ),
         _dotIndicator(),
       ],

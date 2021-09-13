@@ -18,14 +18,14 @@ class DefaultButton extends StatelessWidget {
     SizeConfig().init(context);
     return SizedBox(
       width: double.infinity,
-      height: getProportionateResponsiveSize(46),
+      height: getProportionateScreenHeight(46),
       child: RawMaterialButton(
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(12),
         ),
-        elevation: 0,
         fillColor: primaryColor,
         onPressed: onPress,
+        elevation: 0,
         child: Text(
           text,
           style: GoogleFonts.lato(
@@ -53,7 +53,7 @@ class DefaultButtonOutlined extends StatelessWidget {
     SizeConfig().init(context);
     return SizedBox(
       width: double.infinity,
-      height: getProportionateResponsiveSize(46),
+      height: getProportionateScreenHeight(46),
       child: RawMaterialButton(
         shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(12),
@@ -63,6 +63,7 @@ class DefaultButtonOutlined extends StatelessWidget {
             )),
         fillColor: Colors.transparent,
         onPressed: onPress,
+        elevation: 0,
         child: Text(
           text,
           style: GoogleFonts.lato(
@@ -95,13 +96,14 @@ class DefaultButtonIcon extends StatelessWidget {
   Widget build(BuildContext context) {
     SizeConfig().init(context);
     return SizedBox(
-      height: getProportionateResponsiveSize(46),
+      height: getProportionateScreenHeight(46),
       child: RawMaterialButton(
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(4),
         ),
         fillColor: color,
         onPressed: onPress,
+        elevation: 0,
         child: Padding(
           padding: const EdgeInsets.only(left: 10, right: 10),
           child: Row(
@@ -149,7 +151,7 @@ class DefaultButtonSocial extends StatelessWidget {
     SizeConfig().init(context);
     return SizedBox(
       width: double.infinity,
-      height: getProportionateResponsiveSize(41),
+      height: getProportionateScreenHeight(41),
       child: RawMaterialButton(
         shape: color != null
             ? RoundedRectangleBorder(
@@ -163,6 +165,7 @@ class DefaultButtonSocial extends StatelessWidget {
                 )),
         fillColor: color != null ? color : Colors.transparent,
         onPressed: onPress,
+        elevation: 0,
         child: Padding(
           padding: const EdgeInsets.only(left: 7, right: 7),
           child: Row(

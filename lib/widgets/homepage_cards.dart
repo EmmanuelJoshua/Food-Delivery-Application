@@ -26,8 +26,8 @@ class FoodCard extends StatelessWidget {
       child: Column(
         children: [
           Container(
-            height: 150,
-            width: getProportionateResponsiveSize(261),
+            height: getProportionateScreenHeight(150),
+            width: getProportionateScreenWidth(261),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(5),
               image: new DecorationImage(
@@ -45,8 +45,8 @@ class FoodCard extends StatelessWidget {
                   child: ClipRRect(
                       borderRadius: BorderRadius.all(Radius.circular(6)),
                       child: Container(
-                          height: getProportionateResponsiveSize(28),
-                          width: getProportionateResponsiveSize(72),
+                          height: getProportionateScreenHeight(28),
+                          width: getProportionateScreenWidth(72),
                           decoration: BoxDecoration(
                             color: Colors.white.withOpacity(0.25),
                           ),
@@ -83,10 +83,10 @@ class FoodCard extends StatelessWidget {
             ),
           ),
           SizedBox(
-            height: getProportionateResponsiveSize(2),
+            height: getProportionateScreenHeight(2),
           ),
           Container(
-            width: getProportionateResponsiveSize(261),
+            width: getProportionateScreenWidth(261),
             child: Column(
               children: [
                 Row(
@@ -111,7 +111,7 @@ class FoodCard extends StatelessWidget {
                   ],
                 ),
                 SizedBox(
-                  height: getProportionateResponsiveSize(2),
+                  height: getProportionateScreenHeight(2),
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -156,7 +156,7 @@ class FoodCard extends StatelessWidget {
 }
 
 class RestaurantCard extends StatelessWidget {
-  const RestaurantCard({
+  RestaurantCard({
     Key key,
     @required this.imageAsset,
     @required this.restaurantName,
@@ -175,8 +175,8 @@ class RestaurantCard extends StatelessWidget {
       child: Column(
         children: [
           Container(
-            height: 150,
-            width: getProportionateResponsiveSize(335),
+            height: getProportionateScreenHeight(150),
+            width: getProportionateScreenWidth(335),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(5),
               image: new DecorationImage(
@@ -186,12 +186,21 @@ class RestaurantCard extends StatelessWidget {
                 ),
               ),
             ),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                _dotIndicator(),
+                SizedBox(
+                  height: 10,
+                )
+              ],
+            ),
           ),
           SizedBox(
-            height: getProportionateResponsiveSize(2),
+            height: getProportionateScreenHeight(5),
           ),
           Container(
-            width: getProportionateResponsiveSize(335),
+            width: getProportionateScreenWidth(335),
             child: Column(
               children: [
                 Row(
@@ -228,7 +237,7 @@ class RestaurantCard extends StatelessWidget {
                   ],
                 ),
                 SizedBox(
-                  height: getProportionateResponsiveSize(2),
+                  height: getProportionateScreenHeight(4),
                 ),
                 Row(
                   children: [
@@ -265,6 +274,31 @@ class RestaurantCard extends StatelessWidget {
             ),
           )
         ],
+      ),
+    );
+  }
+
+  Widget _dotIndicator() {
+    return SizedBox(
+        child: Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: List.generate(
+        3,
+        (index) => _buildDot(index: index),
+      ),
+    ));
+  }
+
+  Widget _buildDot({int index}) {
+    return AnimatedContainer(
+      duration: Duration(milliseconds: 200),
+      margin: EdgeInsets.only(right: 5),
+      height: 5,
+      width: 17,
+      decoration: BoxDecoration(
+        color:
+            index == 0 ? Color(0xFFEDEFF1) : Color(0xFFEDEFF1).withOpacity(0.5),
+        borderRadius: BorderRadius.circular(3),
       ),
     );
   }

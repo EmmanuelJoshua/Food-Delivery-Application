@@ -42,48 +42,57 @@ class _OnboardingState extends State<Onboarding> {
                       child: SvgPicture.asset(
                         'assets/icon_images/play_icon.svg',
                       ),
-                      height: getProportionateResponsiveSize(72),
-                      width: getProportionateResponsiveSize(72),
+                      height: getProportionateScreenHeight(72),
+                      width: getProportionateScreenWidth(72),
                     ),
+                    SizeConfig.orientation == Orientation.landscape
+                        ? SizedBox(
+                            height: getProportionateScreenHeight(40),
+                          )
+                        : SizedBox(
+                            height: getProportionateScreenHeight(70),
+                          ),
                     SizedBox(
-                      height: getProportionateResponsiveSize(70),
-                    ),
-                    SizedBox(
-                      width: getProportionateResponsiveSize(330),
+                      width: getProportionateScreenWidth(330),
                       child: Wrap(
                         children: [
-                          Text('Yori is here to serve you anytime anyday. ',
-                              softWrap: true,
-                              textAlign: TextAlign.center,
-                              style: GoogleFonts.lato(
-                                  color: Colors.white,
-                                  fontSize: 26,
-                                  height: 1.2,
-                                  fontWeight: FontWeight.w700)),
+                          Center(
+                            child: Text(
+                                'Yori is here to serve you anytime anyday. ',
+                                softWrap: true,
+                                textAlign: TextAlign.center,
+                                style: GoogleFonts.lato(
+                                    color: Colors.white,
+                                    fontSize: 26,
+                                    height: 1.2,
+                                    fontWeight: FontWeight.w700)),
+                          ),
                         ],
                       ),
                     ),
                     SizedBox(
-                      height: getProportionateResponsiveSize(15),
+                      height: getProportionateScreenHeight(15),
                     ),
                     SizedBox(
-                      width: getProportionateResponsiveSize(225),
+                      width: getProportionateScreenWidth(225),
                       child: Wrap(
                         children: [
-                          Text(
-                              'Qualified caterers ready to cater for your parties anytime anyday. ',
-                              softWrap: true,
-                              textAlign: TextAlign.center,
-                              style: GoogleFonts.lato(
-                                  color: Colors.white,
-                                  fontSize: 16,
-                                  height: 1.4,
-                                  fontWeight: FontWeight.w500)),
+                          Center(
+                            child: Text(
+                                'Qualified caterers ready to cater for your parties anytime anyday. ',
+                                softWrap: true,
+                                textAlign: TextAlign.center,
+                                style: GoogleFonts.lato(
+                                    color: Colors.white,
+                                    fontSize: 16,
+                                    height: 1.4,
+                                    fontWeight: FontWeight.w500)),
+                          ),
                         ],
                       ),
                     ),
                     SizedBox(
-                      height: getProportionateResponsiveSize(15),
+                      height: getProportionateScreenHeight(15),
                     ),
                     DefaultButton(
                       text: 'Sign up',
@@ -91,15 +100,23 @@ class _OnboardingState extends State<Onboarding> {
                         model.toSignup();
                       },
                     ),
-                    SizedBox(
-                      height: getProportionateResponsiveSize(20),
-                    ),
+                    SizeConfig.orientation == Orientation.landscape
+                        ? SizedBox(
+                            height: getProportionateScreenHeight(17),
+                          )
+                        : SizedBox(
+                            height: getProportionateScreenHeight(20),
+                          ),
                     DefaultButtonOutlined(
                       text: 'Login',
                     ),
-                    SizedBox(
-                      height: getProportionateResponsiveSize(40),
-                    ),
+                    SizeConfig.orientation == Orientation.landscape
+                        ? SizedBox(
+                            height: getProportionateScreenHeight(20),
+                          )
+                        : SizedBox(
+                            height: getProportionateScreenHeight(40),
+                          ),
                   ],
                 ),
               )

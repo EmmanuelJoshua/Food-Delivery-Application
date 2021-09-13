@@ -71,7 +71,7 @@ class _SplashScreenState extends State<SplashScreen> {
             children: [
               Spacer(),
               SizedBox(
-                height: getProportionateResponsiveSize(80),
+                height: getProportionateScreenHeight(80),
               ),
               Expanded(
                 flex: 2,
@@ -80,53 +80,53 @@ class _SplashScreenState extends State<SplashScreen> {
                     Center(
                       child: Container(
                         child: Image.asset('assets/images/splash_logo.png'),
-                        height: getProportionateResponsiveSize(109),
-                        width: getProportionateResponsiveSize(166),
+                        height: getProportionateScreenHeight(109),
+                        width: getProportionateScreenWidth(166),
                       ),
                     ),
                     Positioned(
-                      top: 20,
-                      left: 50,
+                      top: 40,
+                      left: 55,
                       child: Opacity(
                         opacity: 0.2,
                         child: Container(
                           child: Image.asset('assets/images/splash_bg1.png'),
-                          height: getProportionateResponsiveSize(52),
-                          width: getProportionateResponsiveSize(47),
+                          height: getProportionateScreenHeight(52),
+                          width: getProportionateScreenWidth(47),
                         ),
                       ),
                     ),
                     Positioned(
-                      top: 20,
-                      right: 50,
+                      top: 40,
+                      right: 55,
                       child: Opacity(
                         opacity: 0.2,
                         child: Container(
                           child: Image.asset('assets/images/splash_bg1.png'),
-                          height: getProportionateResponsiveSize(52),
-                          width: getProportionateResponsiveSize(47),
+                          height: getProportionateScreenHeight(52),
+                          width: getProportionateScreenWidth(47),
                         ),
                       ),
                     ),
                     Positioned(
-                      bottom: 20,
-                      left: 50,
+                      bottom: 40,
+                      left: 55,
                       child: Opacity(
                         opacity: 0.1,
                         child: Container(
                           child: Image.asset('assets/images/splash_bg1.png'),
-                          height: getProportionateResponsiveSize(52),
-                          width: getProportionateResponsiveSize(47),
+                          height: getProportionateScreenHeight(52),
+                          width: getProportionateScreenWidth(47),
                         ),
                       ),
                     ),
                     Positioned(
-                      bottom: 20,
-                      right: 50,
+                      bottom: 40,
+                      right: 55,
                       child: Container(
                         child: Image.asset('assets/images/splash_bg2.png'),
-                        height: getProportionateResponsiveSize(52),
-                        width: getProportionateResponsiveSize(52),
+                        height: getProportionateScreenHeight(52),
+                        width: getProportionateScreenWidth(52),
                       ),
                     ),
                   ],
@@ -143,7 +143,7 @@ class _SplashScreenState extends State<SplashScreen> {
                         textAlign: TextAlign.center,
                         style: GoogleFonts.lato(
                             color: Colors.white,
-                            fontSize: 14,
+                            fontSize: getProportionateResponsiveSize(15),
                             height: 1.4,
                             fontWeight: FontWeight.w400)),
                   ],
