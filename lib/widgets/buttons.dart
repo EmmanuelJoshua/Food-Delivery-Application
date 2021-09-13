@@ -29,7 +29,8 @@ class DefaultButton extends StatelessWidget {
         child: Text(
           text,
           style: GoogleFonts.lato(
-            fontSize: 18, // getProportionateScreenHeight(20),
+            fontSize: getProportionateResponsiveSize(
+                17), //getProportionateScreenHeight(20),
             fontWeight: FontWeight.w700,
             color: Colors.white,
           ),
@@ -120,7 +121,8 @@ class DefaultButtonIcon extends StatelessWidget {
               Text(
                 text,
                 style: GoogleFonts.lato(
-                  fontSize: 18, //getProportionateScreenHeight(20),
+                  fontSize: getProportionateResponsiveSize(
+                      17), //getProportionateScreenHeight(20),
                   fontWeight: FontWeight.w700,
                   color: isLight ? Colors.white : textColor2,
                 ),
@@ -182,7 +184,8 @@ class DefaultButtonSocial extends StatelessWidget {
               Text(
                 text,
                 style: GoogleFonts.lato(
-                  fontSize: 18, //getProportionateScreenHeight(20),
+                  fontSize: getProportionateResponsiveSize(
+                      17), //getProportionateScreenHeight(20),
                   fontWeight: FontWeight.w700,
                   color: color != null ? Colors.white : textColor2,
                 ),

@@ -63,7 +63,8 @@ class _OnboardingState extends State<Onboarding> {
                                 textAlign: TextAlign.center,
                                 style: GoogleFonts.lato(
                                     color: Colors.white,
-                                    fontSize: 26,
+                                    fontSize:
+                                        getProportionateResponsiveSize(25),
                                     height: 1.2,
                                     fontWeight: FontWeight.w700)),
                           ),
@@ -84,7 +85,8 @@ class _OnboardingState extends State<Onboarding> {
                                 textAlign: TextAlign.center,
                                 style: GoogleFonts.lato(
                                     color: Colors.white,
-                                    fontSize: 16,
+                                    fontSize:
+                                        getProportionateResponsiveSize(14),
                                     height: 1.4,
                                     fontWeight: FontWeight.w500)),
                           ),

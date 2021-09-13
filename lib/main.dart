@@ -143,7 +143,7 @@ class _SplashScreenState extends State<SplashScreen> {
                         textAlign: TextAlign.center,
                         style: GoogleFonts.lato(
                             color: Colors.white,
-                            fontSize: getProportionateResponsiveSize(15),
+                            fontSize: getProportionateResponsiveSize(13),
                             height: 1.4,
                             fontWeight: FontWeight.w400)),
                   ],

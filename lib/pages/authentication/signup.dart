@@ -55,7 +55,7 @@ class _SignUpState extends State<SignUp> {
                   child: Text('Skip Here',
                       style: GoogleFonts.lato(
                           color: textColor,
-                          fontSize: getProportionateResponsiveSize(17),
+                          fontSize: getProportionateResponsiveSize(16),
                           fontWeight: FontWeight.w400)),
                 ),
               )
@@ -70,7 +70,7 @@ class _SignUpState extends State<SignUp> {
                 Text('Sign up',
                     style: GoogleFonts.lato(
                       color: textColor,
-                      fontSize: getProportionateResponsiveSize(35),
+                      fontSize: getProportionateResponsiveSize(34),
                       fontWeight: FontWeight.w700,
                     )),
                 SizedBox(
@@ -79,7 +79,7 @@ class _SignUpState extends State<SignUp> {
                 Text('Complete the required registration details',
                     style: GoogleFonts.lato(
                       color: textColor,
-                      fontSize: getProportionateResponsiveSize(16),
+                      fontSize: getProportionateResponsiveSize(15),
                       fontWeight: FontWeight.w400,
                     )),
                 SizedBox(
@@ -118,7 +118,7 @@ class _SignUpState extends State<SignUp> {
                       child: Text('or continue with',
                           style: GoogleFonts.lato(
                             color: textColor3,
-                            fontSize: getProportionateResponsiveSize(15),
+                            fontSize: getProportionateResponsiveSize(13),
                             fontWeight: FontWeight.w400,
                           )),
                     ),
@@ -180,7 +180,7 @@ class _SignUpState extends State<SignUp> {
                         Text('LOGIN',
                             style: GoogleFonts.lato(
                               color: Color(0xFFF15A24),
-                              fontSize: getProportionateResponsiveSize(17),
+                              fontSize: getProportionateResponsiveSize(16),
                               fontWeight: FontWeight.w500,
                             )),
                         SizedBox(

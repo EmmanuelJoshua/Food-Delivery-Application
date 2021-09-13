@@ -61,7 +61,8 @@ class _HomePageState extends State<HomePage> {
                               Text('Delivering To',
                                   style: GoogleFonts.lato(
                                       color: primaryColor,
-                                      fontSize: 13,
+                                      fontSize:
+                                          getProportionateResponsiveSize(12),
                                       fontWeight: FontWeight.w700)),
                               Row(
                                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -69,7 +70,9 @@ class _HomePageState extends State<HomePage> {
                                   Text('170, Apata street, Somolu',
                                       style: GoogleFonts.lato(
                                           color: textColor,
-                                          fontSize: 16,
+                                          fontSize:
+                                              getProportionateResponsiveSize(
+                                                  15),
                                           fontWeight: FontWeight.w700)),
                                   Container(
                                     padding: EdgeInsets.only(top: 4),
@@ -260,7 +263,7 @@ class _HomePageState extends State<HomePage> {
             'Get 10% off your first order!',
             style: GoogleFonts.lato(
               color: Colors.white,
-              fontSize: 19,
+              fontSize: getProportionateResponsiveSize(17),
               fontWeight: FontWeight.w600,
             ),
           ),
@@ -273,7 +276,7 @@ class _HomePageState extends State<HomePage> {
               'Use code code URSXVN on orders above ₦5000',
               style: GoogleFonts.lato(
                 color: Colors.white,
-                fontSize: 16,
+                fontSize: getProportionateResponsiveSize(14),
                 fontWeight: FontWeight.w400,
               ),
             ),
@@ -305,7 +308,7 @@ class _HomePageState extends State<HomePage> {
                 'Try Something New',
                 style: GoogleFonts.lato(
                   color: textColor2,
-                  fontSize: 19,
+                  fontSize: getProportionateResponsiveSize(18),
                   fontWeight: FontWeight.w600,
                 ),
               ),
@@ -348,7 +351,7 @@ class _HomePageState extends State<HomePage> {
                 'Closest to you',
                 style: GoogleFonts.lato(
                   color: textColor2,
-                  fontSize: 19,
+                  fontSize: getProportionateResponsiveSize(18),
                   fontWeight: FontWeight.w600,
                 ),
               ),
@@ -391,7 +394,7 @@ class _HomePageState extends State<HomePage> {
                 'Special offers',
                 style: GoogleFonts.lato(
                   color: textColor2,
-                  fontSize: 19,
+                  fontSize: getProportionateResponsiveSize(18),
                   fontWeight: FontWeight.w600,
                 ),
               ),
@@ -437,7 +440,7 @@ class _HomePageState extends State<HomePage> {
                 'All Restuarants',
                 style: GoogleFonts.lato(
                   color: textColor2,
-                  fontSize: 19,
+                  fontSize: getProportionateResponsiveSize(18),
                   fontWeight: FontWeight.w600,
                 ),
               ),

@@ -20,7 +20,7 @@ class _DefaultTextfieldState extends State<DefaultTextfield> {
     return TextFormField(
       style: GoogleFonts.lato(
         color: Color(0xFF2C2929),
-        fontSize: 17,
+        fontSize: getProportionateResponsiveSize(16),
         fontWeight: FontWeight.w500,
       ),
       autocorrect: false,
@@ -32,7 +32,7 @@ class _DefaultTextfieldState extends State<DefaultTextfield> {
         hintText: widget.title,
         hintStyle: GoogleFonts.lato(
           color: Color(0xFF9E9E9E),
-          fontSize: 17,
+          fontSize: getProportionateResponsiveSize(16),
           fontWeight: FontWeight.w500,
         ),
         enabledBorder: OutlineInputBorder(
@@ -80,14 +80,14 @@ class _SearchTextfieldState extends State<SearchTextfield> {
               child: TextField(
                   style: GoogleFonts.lato(
                     color: Color(0xFF2C2929),
-                    fontSize: 16,
+                    fontSize: getProportionateResponsiveSize(16),
                     fontWeight: FontWeight.w500,
                   ),
                   cursorColor: Colors.black,
                   decoration: InputDecoration.collapsed(
                     hintStyle: GoogleFonts.lato(
                       color: Color(0xFF9E9E9E),
-                      fontSize: 16,
+                      fontSize: getProportionateResponsiveSize(16),
                       fontWeight: FontWeight.w500,
                     ),
                     hintText: 'What are you going to do today?',
