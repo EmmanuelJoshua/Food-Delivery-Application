@@ -18,6 +18,8 @@ const facebookButtonColor = Color(0xFF1877F2);
 
 const randomColor = Color(0xFF757575);
 
+const unselectedNavColor = Color(0xFFA8A8A8);
+
 const splashGradientColor = LinearGradient(
   begin: Alignment.topCenter,
   end: Alignment.bottomCenter,
