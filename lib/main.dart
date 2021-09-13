@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
     overrideDeviceColors();
 
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Cloudfift Assessment',
       debugShowCheckedModeBanner: false,
       theme: context.themeData,
       onGenerateRoute: AppRouter.generateRoute,
