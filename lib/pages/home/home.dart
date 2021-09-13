@@ -24,7 +24,6 @@ class _HomeState extends State<Home> {
             child: BottomNavigationBar(
               currentIndex: model.currentIndex,
               onTap: (index) {
-                if (index == model.currentIndex) return;
                 model.setCurrentIndex = index;
               },
               backgroundColor: Colors.white,

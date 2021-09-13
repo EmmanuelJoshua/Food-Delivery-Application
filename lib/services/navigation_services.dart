@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+//Used to navigate in the app with named routes and without context
 class NavigationService {
   final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
 

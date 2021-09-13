@@ -18,6 +18,7 @@ void overrideDeviceColors([Color color]) {
   ));
 }
 
+//Adds an extension on the BuildContext to add Theme to main class
 extension CustomThemeContext on BuildContext {
   ThemeData get themeData => ThemeData(
         primaryColor: primaryColor,

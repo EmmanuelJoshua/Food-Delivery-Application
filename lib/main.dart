@@ -4,9 +4,9 @@ import 'package:cloudfift_assessment/router.dart';
 import 'package:cloudfift_assessment/services/navigation_services.dart';
 import 'package:cloudfift_assessment/utils/colors.dart';
 import 'package:cloudfift_assessment/utils/size_config.dart';
+import 'package:cloudfift_assessment/utils/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'utils/theme.dart';
 
 void main() {
   //Setup the get it locator
@@ -48,6 +48,7 @@ class _SplashScreenState extends State<SplashScreen> {
   }
 
   void load() async {
+    //To delay the splash screen for 4 seconds
     await Future.delayed(Duration(seconds: 4));
     _navigationService.navigateToReplace(OnboardingViewRoute);
   }
