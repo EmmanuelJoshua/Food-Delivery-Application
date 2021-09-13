@@ -1,7 +1,4 @@
-import 'package:cloudfift_assessment/constants/routing_constant.dart';
-import 'package:cloudfift_assessment/locator.dart';
-import 'package:cloudfift_assessment/pages/home/home.dart';
-import 'package:cloudfift_assessment/services/navigation_services.dart';
+import 'package:cloudfift_assessment/pages/authentication/viewmodels/signup_viewmodel.dart';
 import 'package:cloudfift_assessment/utils/colors.dart';
 import 'package:cloudfift_assessment/utils/size_config.dart';
 import 'package:cloudfift_assessment/widgets/buttons.dart';
@@ -9,6 +6,7 @@ import 'package:cloudfift_assessment/widgets/textfields.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:stacked/stacked.dart';
 
 class SignUp extends StatefulWidget {
   @override
@@ -16,202 +14,199 @@ class SignUp extends StatefulWidget {
 }
 
 class _SignUpState extends State<SignUp> {
-  final NavigationService _navigationService = locator<NavigationService>();
-
-  void toHome() {
-    _navigationService.navigateToReplace(HomepageViewRoute);
-  }
-
-  void goBack() {
-    _navigationService.goBack();
-  }
-
   int currentPage = 0;
+
   @override
   Widget build(BuildContext context) {
     SizeConfig().init(context);
-    return Scaffold(
-      appBar: AppBar(
-        elevation: 0,
-        backgroundColor: Colors.transparent,
-        automaticallyImplyLeading: false,
-        title: Row(
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: <Widget>[
-            InkWell(
-              onTap: () {
-                goBack();
-              },
-              child: Container(
-                child: SvgPicture.asset(
-                  'assets/icon_images/chevron_left_icon.svg',
-                ),
-                height: getProportionateResponsiveSize(26),
-                width: getProportionateResponsiveSize(26),
-              ),
-            ),
-          ],
-        ),
-        actions: [
-          Padding(
-            padding: EdgeInsets.only(top: 18, right: 20),
-            child: InkWell(
-              onTap: () {
-                toHome();
-              },
-              child: Text('Skip Here',
-                  style: GoogleFonts.lato(
-                      color: textColor,
-                      fontSize: getProportionateResponsiveSize(17),
-                      fontWeight: FontWeight.w400)),
-            ),
-          )
-        ],
-      ),
-      backgroundColor: authBgColor,
-      body: ListView(
-        padding: const EdgeInsets.only(left: 25, right: 25, top: 30),
-        children: [
-          Text('Sign up',
-              style: GoogleFonts.lato(
-                color: textColor,
-                fontSize: getProportionateResponsiveSize(35),
-                fontWeight: FontWeight.w700,
-              )),
-          SizedBox(
-            height: getProportionateResponsiveSize(15),
-          ),
-          Text('Complete the required registration details',
-              style: GoogleFonts.lato(
-                color: textColor,
-                fontSize: getProportionateResponsiveSize(16),
-                fontWeight: FontWeight.w400,
-              )),
-          SizedBox(
-            height: getProportionateResponsiveSize(25),
-          ),
-          _signUpForm(context),
-          SizedBox(
-            height: getProportionateResponsiveSize(25),
-          ),
-          DefaultButton(
-            text: 'Continue',
-            onPress: () {
-              toHome();
-            },
-          ),
-          SizedBox(
-            height: getProportionateResponsiveSize(25),
-          ),
-          Row(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Expanded(
-                child: Opacity(
-                  opacity: 0.2,
+    return ViewModelBuilder<SignupViewModel>.reactive(
+      disposeViewModel: true,
+      builder: (context, model, child) {
+        return Scaffold(
+          appBar: AppBar(
+            elevation: 0,
+            backgroundColor: Colors.transparent,
+            automaticallyImplyLeading: false,
+            title: Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: <Widget>[
+                InkWell(
+                  onTap: () {
+                    model.goBack();
+                  },
                   child: Container(
-                    color: randomColor,
-                    height: 1.3,
+                    child: SvgPicture.asset(
+                      'assets/icon_images/chevron_left_icon.svg',
+                    ),
+                    height: getProportionateResponsiveSize(26),
+                    width: getProportionateResponsiveSize(26),
                   ),
                 ),
-              ),
-              SizedBox(
-                width: getProportionateResponsiveSize(12),
-              ),
+              ],
+            ),
+            actions: [
               Padding(
-                padding: const EdgeInsets.only(bottom: 4),
-                child: Text('or continue with',
-                    style: GoogleFonts.lato(
-                      color: textColor3,
-                      fontSize: getProportionateResponsiveSize(15),
-                      fontWeight: FontWeight.w400,
-                    )),
-              ),
-              SizedBox(
-                width: getProportionateResponsiveSize(12),
-              ),
-              Expanded(
-                child: Opacity(
-                  opacity: 0.2,
-                  child: Container(
-                    color: randomColor,
-                    height: 1.3,
-                  ),
+                padding: EdgeInsets.only(top: 18, right: 20),
+                child: InkWell(
+                  onTap: () {
+                    model.toHome();
+                  },
+                  child: Text('Skip Here',
+                      style: GoogleFonts.lato(
+                          color: textColor,
+                          fontSize: getProportionateResponsiveSize(17),
+                          fontWeight: FontWeight.w400)),
                 ),
-              ),
+              )
             ],
           ),
-          SizedBox(
-            height: getProportionateResponsiveSize(22),
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
+          backgroundColor: authBgColor,
+          body: ListView(
+            padding: const EdgeInsets.only(left: 25, right: 25, top: 30),
             children: [
+              Text('Sign up',
+                  style: GoogleFonts.lato(
+                    color: textColor,
+                    fontSize: getProportionateResponsiveSize(35),
+                    fontWeight: FontWeight.w700,
+                  )),
               SizedBox(
-                width: getProportionateResponsiveSize(149),
-                child: DefaultButtonSocial(
-                  text: 'Google',
-                  iconAsset: 'assets/icon_images/google_icon.svg',
-                  // color: buttonTwoColor,
-                ),
+                height: getProportionateResponsiveSize(15),
               ),
-              SizedBox(
-                width: getProportionateResponsiveSize(149),
-                child: DefaultButtonSocial(
-                  text: 'Facebook',
-                  iconAsset: 'assets/icon_images/facebook_icon.svg',
-                  color: facebookButtonColor,
-                ),
-              ),
-            ],
-          ),
-          SizedBox(
-            height: getProportionateResponsiveSize(50),
-          ),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text('Already have an Account?',
+              Text('Complete the required registration details',
                   style: GoogleFonts.lato(
                     color: textColor,
                     fontSize: getProportionateResponsiveSize(16),
-                    fontWeight: FontWeight.w500,
+                    fontWeight: FontWeight.w400,
                   )),
               SizedBox(
-                height: getProportionateResponsiveSize(17),
+                height: getProportionateResponsiveSize(25),
+              ),
+              _signUpForm(context),
+              SizedBox(
+                height: getProportionateResponsiveSize(25),
+              ),
+              DefaultButton(
+                text: 'Continue',
+                onPress: () {
+                  model.toHome();
+                },
+              ),
+              SizedBox(
+                height: getProportionateResponsiveSize(25),
               ),
               Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  Text('LOGIN',
-                      style: GoogleFonts.lato(
-                        color: Color(0xFFF15A24),
-                        fontSize: getProportionateResponsiveSize(17),
-                        fontWeight: FontWeight.w500,
-                      )),
-                  SizedBox(
-                    width: getProportionateResponsiveSize(2),
+                  Expanded(
+                    child: Opacity(
+                      opacity: 0.2,
+                      child: Container(
+                        color: randomColor,
+                        height: 1.3,
+                      ),
+                    ),
                   ),
-                  Container(
-                    child: RotatedBox(
-                      quarterTurns: 2,
-                      child: SvgPicture.asset(
-                        'assets/icon_images/chevron_left_icon.svg',
-                        color: Color(0xFFF15A24),
-                        height: getProportionateResponsiveSize(19),
-                        width: getProportionateResponsiveSize(19),
+                  SizedBox(
+                    width: getProportionateResponsiveSize(12),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(bottom: 4),
+                    child: Text('or continue with',
+                        style: GoogleFonts.lato(
+                          color: textColor3,
+                          fontSize: getProportionateResponsiveSize(15),
+                          fontWeight: FontWeight.w400,
+                        )),
+                  ),
+                  SizedBox(
+                    width: getProportionateResponsiveSize(12),
+                  ),
+                  Expanded(
+                    child: Opacity(
+                      opacity: 0.2,
+                      child: Container(
+                        color: randomColor,
+                        height: 1.3,
                       ),
                     ),
                   ),
                 ],
               ),
               SizedBox(
-                height: getProportionateResponsiveSize(20),
+                height: getProportionateResponsiveSize(22),
               ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  SizedBox(
+                    width: getProportionateResponsiveSize(149),
+                    child: DefaultButtonSocial(
+                      text: 'Google',
+                      iconAsset: 'assets/icon_images/google_icon.svg',
+                      // color: buttonTwoColor,
+                    ),
+                  ),
+                  SizedBox(
+                    width: getProportionateResponsiveSize(149),
+                    child: DefaultButtonSocial(
+                      text: 'Facebook',
+                      iconAsset: 'assets/icon_images/facebook_icon.svg',
+                      color: facebookButtonColor,
+                    ),
+                  ),
+                ],
+              ),
+              SizedBox(
+                height: getProportionateResponsiveSize(50),
+              ),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text('Already have an Account?',
+                      style: GoogleFonts.lato(
+                        color: textColor,
+                        fontSize: getProportionateResponsiveSize(16),
+                        fontWeight: FontWeight.w500,
+                      )),
+                  SizedBox(
+                    height: getProportionateResponsiveSize(17),
+                  ),
+                  Row(
+                    children: [
+                      Text('LOGIN',
+                          style: GoogleFonts.lato(
+                            color: Color(0xFFF15A24),
+                            fontSize: getProportionateResponsiveSize(17),
+                            fontWeight: FontWeight.w500,
+                          )),
+                      SizedBox(
+                        width: getProportionateResponsiveSize(2),
+                      ),
+                      Container(
+                        child: RotatedBox(
+                          quarterTurns: 2,
+                          child: SvgPicture.asset(
+                            'assets/icon_images/chevron_left_icon.svg',
+                            color: Color(0xFFF15A24),
+                            height: getProportionateResponsiveSize(19),
+                            width: getProportionateResponsiveSize(19),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                  SizedBox(
+                    height: getProportionateResponsiveSize(20),
+                  ),
+                ],
+              )
             ],
-          )
-        ],
-      ),
+          ),
+        );
+      },
+      viewModelBuilder: () => SignupViewModel(),
     );
   }
 

@@ -1,5 +1,6 @@
 import 'dart:ui';
 
+import 'package:cloudfift_assessment/pages/home/viewmodels/homepage_viewmodel.dart';
 import 'package:cloudfift_assessment/utils/colors.dart';
 import 'package:cloudfift_assessment/utils/size_config.dart';
 import 'package:cloudfift_assessment/widgets/buttons.dart';
@@ -8,6 +9,7 @@ import 'package:cloudfift_assessment/widgets/textfields.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:stacked/stacked.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -15,8 +17,6 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  int currentIndex = 0;
-
   List<String> selectors = ['Restaurant', 'Catering', 'Restaurant', 'Catering'];
   List<String> foodList1 = ['Jollof rice and chicken', 'Grilled fish'];
   List<String> foodList2 = ['Jollof rice', 'Fried rice and chicken'];
@@ -26,176 +26,183 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     SizeConfig().init(context);
-    return CustomScrollView(
-      physics: NeverScrollableScrollPhysics(),
-      slivers: [
-        SliverAppBar(
-          backgroundColor: Colors.white,
-          titleSpacing: 0.0,
-          automaticallyImplyLeading: false,
-          toolbarHeight: 60,
-          title: Column(
-            children: [
-              Padding(
-                padding: const EdgeInsets.only(left: 16, right: 16),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Container(
-                      padding: EdgeInsets.only(top: 6),
-                      child: SvgPicture.asset(
-                        'assets/icon_images/profile_icon.svg',
-                        height: 23,
-                      ),
-                    ),
-                    Column(
+    return ViewModelBuilder<HomePageViewModel>.reactive(
+      disposeViewModel: true,
+      builder: (context, model, child) {
+        return CustomScrollView(
+          physics: NeverScrollableScrollPhysics(),
+          slivers: [
+            SliverAppBar(
+              backgroundColor: Colors.white,
+              titleSpacing: 0.0,
+              automaticallyImplyLeading: false,
+              toolbarHeight: 60,
+              title: Column(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only(left: 16, right: 16),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        SizedBox(
-                          height: 11,
+                        Container(
+                          padding: EdgeInsets.only(top: 6),
+                          child: SvgPicture.asset(
+                            'assets/icon_images/profile_icon.svg',
+                            height: 23,
+                          ),
                         ),
-                        Text('Delivering To',
-                            style: GoogleFonts.lato(
-                                color: primaryColor,
-                                fontSize: 13,
-                                fontWeight: FontWeight.w700)),
-                        Row(
-                          crossAxisAlignment: CrossAxisAlignment.center,
+                        Column(
                           children: [
-                            Text('170, Apata street, Somolu',
+                            SizedBox(
+                              height: 11,
+                            ),
+                            Text('Delivering To',
                                 style: GoogleFonts.lato(
-                                    color: textColor,
-                                    fontSize: 16,
+                                    color: primaryColor,
+                                    fontSize: 13,
                                     fontWeight: FontWeight.w700)),
-                            Container(
-                              padding: EdgeInsets.only(top: 4),
-                              child: RotatedBox(
-                                quarterTurns: 3,
-                                child: SvgPicture.asset(
-                                  'assets/icon_images/chevron_left_icon.svg',
-                                  color: textColor2,
-                                  height: getProportionateResponsiveSize(14),
-                                  width: getProportionateResponsiveSize(14),
+                            Row(
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                Text('170, Apata street, Somolu',
+                                    style: GoogleFonts.lato(
+                                        color: textColor,
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.w700)),
+                                Container(
+                                  padding: EdgeInsets.only(top: 4),
+                                  child: RotatedBox(
+                                    quarterTurns: 3,
+                                    child: SvgPicture.asset(
+                                      'assets/icon_images/chevron_left_icon.svg',
+                                      color: textColor2,
+                                      height:
+                                          getProportionateResponsiveSize(14),
+                                      width: getProportionateResponsiveSize(14),
+                                    ),
+                                  ),
                                 ),
-                              ),
+                              ],
                             ),
                           ],
                         ),
+                        Container(
+                          padding: EdgeInsets.only(top: 6),
+                          child: SvgPicture.asset(
+                            'assets/icon_images/notification_icon.svg',
+                            height: 23,
+                          ),
+                        )
                       ],
                     ),
-                    Container(
-                      padding: EdgeInsets.only(top: 6),
-                      child: SvgPicture.asset(
-                        'assets/icon_images/notification_icon.svg',
-                        height: 23,
+                  ),
+                  SizedBox(
+                    height: 6,
+                  ),
+                  Row(
+                    children: [
+                      Expanded(
+                        child: Container(
+                          color: Color(0xFFE0E0E0),
+                          height: 1.1,
+                        ),
                       ),
-                    )
+                    ],
+                  ),
+                ],
+              ),
+              bottom: PreferredSize(
+                  preferredSize: Size.fromHeight(145.0),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 19),
+                        child: SearchTextfield(),
+                      ),
+                      SizedBox(
+                        height: 18,
+                      ),
+                      //For building the categories selection widget
+                      _buildCategories(model),
+                      SizedBox(
+                        height: 10,
+                      ),
+                    ],
+                  )),
+            ),
+            SliverFillRemaining(
+              child: SingleChildScrollView(
+                child: Column(
+                  children: [
+                    //For building the first banner widget
+                    _buildBanner(),
+                    ...[
+                      SizedBox(
+                        height: 10,
+                      ),
+                      Container(
+                        height: 12,
+                        color: authBgColor,
+                      ),
+                      SizedBox(
+                        height: 10,
+                      ),
+                    ],
+                    _buildNewFoodToTry(),
+                    ...[
+                      SizedBox(
+                        height: 10,
+                      ),
+                      Container(
+                        height: 12,
+                        color: authBgColor,
+                      ),
+                      SizedBox(
+                        height: 10,
+                      ),
+                    ],
+                    _buildClosestFood(),
+                    ...[
+                      SizedBox(
+                        height: 10,
+                      ),
+                      Container(
+                        height: 12,
+                        color: authBgColor,
+                      ),
+                      SizedBox(
+                        height: 10,
+                      ),
+                    ],
+                    _buildSpecialOffers(),
+                    ...[
+                      SizedBox(
+                        height: 10,
+                      ),
+                      Container(
+                        height: 12,
+                        color: authBgColor,
+                      ),
+                      SizedBox(
+                        height: 10,
+                      ),
+                    ],
+                    //For building the list of restaurants
+                    _buildRestaurantList()
                   ],
                 ),
               ),
-              SizedBox(
-                height: 6,
-              ),
-              Row(
-                children: [
-                  Expanded(
-                    child: Container(
-                      color: Color(0xFFE0E0E0),
-                      height: 1.1,
-                    ),
-                  ),
-                ],
-              ),
-            ],
-          ),
-          bottom: PreferredSize(
-              preferredSize: Size.fromHeight(145.0),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 19),
-                    child: SearchTextfield(),
-                  ),
-                  SizedBox(
-                    height: 18,
-                  ),
-                  //For building the categories selection widget
-                  _buildCategories(),
-                  SizedBox(
-                    height: 10,
-                  ),
-                ],
-              )),
-        ),
-        SliverFillRemaining(
-          child: SingleChildScrollView(
-            child: Column(
-              children: [
-                //For building the first banner widget
-                _buildBanner(),
-                ...[
-                  SizedBox(
-                    height: 10,
-                  ),
-                  Container(
-                    height: 12,
-                    color: authBgColor,
-                  ),
-                  SizedBox(
-                    height: 10,
-                  ),
-                ],
-                _buildNewFoodToTry(),
-                ...[
-                  SizedBox(
-                    height: 10,
-                  ),
-                  Container(
-                    height: 12,
-                    color: authBgColor,
-                  ),
-                  SizedBox(
-                    height: 10,
-                  ),
-                ],
-                _buildClosestFood(),
-                ...[
-                  SizedBox(
-                    height: 10,
-                  ),
-                  Container(
-                    height: 12,
-                    color: authBgColor,
-                  ),
-                  SizedBox(
-                    height: 10,
-                  ),
-                ],
-                _buildSpecialOffers(),
-                ...[
-                  SizedBox(
-                    height: 10,
-                  ),
-                  Container(
-                    height: 12,
-                    color: authBgColor,
-                  ),
-                  SizedBox(
-                    height: 10,
-                  ),
-                ],
-                //For building the list of restaurants
-                _buildRestaurantList()
-              ],
-            ),
-          ),
-        )
-      ],
+            )
+          ],
+        );
+      },
+      viewModelBuilder: () => HomePageViewModel(),
     );
   }
 
-  Widget _buildCategories() {
+  Widget _buildCategories(HomePageViewModel model) {
     return Container(
       padding: const EdgeInsets.only(left: 19),
       height: 46,
@@ -206,11 +213,14 @@ class _HomePageState extends State<HomePage> {
             margin: const EdgeInsets.only(right: 12),
             child: DefaultButtonIcon(
               text: selectors[index],
+              onPress: () {
+                model.setCurrentIndex = index;
+              },
               iconAsset: index % 2 == 1
                   ? 'assets/icon_images/dish2_icon.svg'
                   : 'assets/icon_images/dish1_icon.svg',
-              color: currentIndex == index ? Colors.red : buttonTwoColor,
-              isLight: currentIndex == index ? true : false,
+              color: model.currentIndex == index ? Colors.red : buttonTwoColor,
+              isLight: model.currentIndex == index ? true : false,
             ),
           );
         },
@@ -285,7 +295,7 @@ class _HomePageState extends State<HomePage> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
-                'Try Something New!',
+                'Try Something New',
                 style: GoogleFonts.lato(
                   color: textColor2,
                   fontSize: 19,
