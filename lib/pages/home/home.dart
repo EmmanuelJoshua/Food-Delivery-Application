@@ -1,9 +1,9 @@
 import 'package:cloudfift_assessment/pages/home/homepage.dart';
 import 'package:cloudfift_assessment/pages/home/viewmodels/home_viewmodel.dart';
 import 'package:cloudfift_assessment/utils/colors.dart';
+import 'package:cloudfift_assessment/utils/size_config.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:stacked/stacked.dart';
 
 class Home extends StatefulWidget {
@@ -14,24 +14,19 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
+    SizeConfig().init(context);
     return ViewModelBuilder<HomeViewModel>.reactive(
       disposeViewModel: true,
       builder: (context, model, child) {
         return Scaffold(
           backgroundColor: Colors.white,
           bottomNavigationBar: Container(
-            height: 64,
+            height: getProportionateScreenHeight(64),
             child: BottomNavigationBar(
               currentIndex: model.currentIndex,
               onTap: (index) {
                 model.setCurrentIndex = index;
               },
-              backgroundColor: Colors.white,
-              elevation: 10,
-              type: BottomNavigationBarType.fixed,
-              unselectedItemColor: Color(0xFFA8A8A8),
-              selectedLabelStyle: GoogleFonts.lato(fontSize: 12),
-              unselectedLabelStyle: GoogleFonts.lato(fontSize: 12),
               items: [
                 BottomNavigationBarItem(
                   icon: Padding(

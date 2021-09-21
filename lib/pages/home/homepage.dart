@@ -3,12 +3,12 @@ import 'dart:ui';
 import 'package:cloudfift_assessment/pages/home/viewmodels/homepage_viewmodel.dart';
 import 'package:cloudfift_assessment/utils/colors.dart';
 import 'package:cloudfift_assessment/utils/size_config.dart';
+import 'package:cloudfift_assessment/utils/theme.dart';
 import 'package:cloudfift_assessment/widgets/buttons.dart';
 import 'package:cloudfift_assessment/widgets/homepage_cards.dart';
 import 'package:cloudfift_assessment/widgets/textfields.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:stacked/stacked.dart';
 
 class HomePage extends StatefulWidget {
@@ -58,22 +58,22 @@ class _HomePageState extends State<HomePage> {
                               SizedBox(
                                 height: 11,
                               ),
-                              Text('Delivering To',
-                                  style: GoogleFonts.lato(
-                                      color: primaryColor,
-                                      fontSize:
-                                          getProportionateResponsiveSize(12),
-                                      fontWeight: FontWeight.w700)),
+                              Text(
+                                'Delivering To',
+                              ).applyStyle(
+                                  color: primaryColor,
+                                  fontSize: getProportionateResponsiveSize(12),
+                                  fontWeight: FontWeight.w700),
                               Row(
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
-                                  Text('170, Apata street, Somolu',
-                                      style: GoogleFonts.lato(
-                                          color: textColor,
-                                          fontSize:
-                                              getProportionateResponsiveSize(
-                                                  15),
-                                          fontWeight: FontWeight.w700)),
+                                  Text(
+                                    '170, Apata street, Somolu',
+                                  ).applyStyle(
+                                      color: textColor,
+                                      fontSize:
+                                          getProportionateResponsiveSize(15),
+                                      fontWeight: FontWeight.w700),
                                   Container(
                                     padding: EdgeInsets.only(top: 4),
                                     child: RotatedBox(
@@ -261,29 +261,27 @@ class _HomePageState extends State<HomePage> {
         children: [
           Text(
             'Get 10% off your first order!',
-            style: GoogleFonts.lato(
-              color: Colors.white,
-              fontSize: getProportionateResponsiveSize(17),
-              fontWeight: FontWeight.w600,
-            ),
+          ).applyStyle(
+            color: Colors.white,
+            fontSize: getProportionateResponsiveSize(17),
+            fontWeight: FontWeight.w600,
           ),
           SizedBox(
-            height: 2,
+            height: getProportionateScreenHeight(5),
           ),
           SizedBox(
             width: 240,
             child: Text(
               'Use code code URSXVN on orders above ₦5000',
-              style: GoogleFonts.lato(
-                color: Colors.white,
-                fontSize: getProportionateResponsiveSize(14),
-                fontWeight: FontWeight.w400,
-              ),
+            ).applyStyle(
+              color: Colors.white,
+              fontSize: getProportionateResponsiveSize(14),
+              fontWeight: FontWeight.w400,
             ),
           ),
           Spacer(),
           SizedBox(
-            width: 110,
+            width: 105,
             child: DefaultButton(
               text: 'Order now',
             ),
@@ -306,11 +304,10 @@ class _HomePageState extends State<HomePage> {
             children: [
               Text(
                 'Try Something New',
-                style: GoogleFonts.lato(
-                  color: textColor2,
-                  fontSize: getProportionateResponsiveSize(18),
-                  fontWeight: FontWeight.w600,
-                ),
+              ).applyStyle(
+                color: textColor2,
+                fontSize: getProportionateResponsiveSize(18),
+                fontWeight: FontWeight.w600,
               ),
               SvgPicture.asset(
                 'assets/icon_images/arrow_right_icon.svg',
@@ -349,11 +346,10 @@ class _HomePageState extends State<HomePage> {
             children: [
               Text(
                 'Closest to you',
-                style: GoogleFonts.lato(
-                  color: textColor2,
-                  fontSize: getProportionateResponsiveSize(18),
-                  fontWeight: FontWeight.w600,
-                ),
+              ).applyStyle(
+                color: textColor2,
+                fontSize: getProportionateResponsiveSize(18),
+                fontWeight: FontWeight.w600,
               ),
               SvgPicture.asset(
                 'assets/icon_images/arrow_right_icon.svg',
@@ -392,11 +388,10 @@ class _HomePageState extends State<HomePage> {
             children: [
               Text(
                 'Special offers',
-                style: GoogleFonts.lato(
-                  color: textColor2,
-                  fontSize: getProportionateResponsiveSize(18),
-                  fontWeight: FontWeight.w600,
-                ),
+              ).applyStyle(
+                color: textColor2,
+                fontSize: getProportionateResponsiveSize(18),
+                fontWeight: FontWeight.w600,
               ),
               SvgPicture.asset(
                 'assets/icon_images/arrow_right_icon.svg',
@@ -438,11 +433,10 @@ class _HomePageState extends State<HomePage> {
             children: [
               Text(
                 'All Restuarants',
-                style: GoogleFonts.lato(
-                  color: textColor2,
-                  fontSize: getProportionateResponsiveSize(18),
-                  fontWeight: FontWeight.w600,
-                ),
+              ).applyStyle(
+                color: textColor2,
+                fontSize: getProportionateResponsiveSize(18),
+                fontWeight: FontWeight.w600,
               ),
             ],
           ),

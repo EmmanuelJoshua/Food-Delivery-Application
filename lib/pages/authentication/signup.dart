@@ -1,6 +1,7 @@
 import 'package:cloudfift_assessment/pages/authentication/viewmodels/signup_viewmodel.dart';
 import 'package:cloudfift_assessment/utils/colors.dart';
 import 'package:cloudfift_assessment/utils/size_config.dart';
+import 'package:cloudfift_assessment/utils/theme.dart';
 import 'package:cloudfift_assessment/widgets/buttons.dart';
 import 'package:cloudfift_assessment/widgets/textfields.dart';
 import 'package:flutter/material.dart';
@@ -24,8 +25,6 @@ class _SignUpState extends State<SignUp> {
       builder: (context, model, child) {
         return Scaffold(
           appBar: AppBar(
-            elevation: 0,
-            backgroundColor: Colors.transparent,
             automaticallyImplyLeading: false,
             title: Row(
               mainAxisAlignment: MainAxisAlignment.start,
@@ -52,36 +51,38 @@ class _SignUpState extends State<SignUp> {
                   onTap: () {
                     model.toHome();
                   },
-                  child: Text('Skip Here',
-                      style: GoogleFonts.lato(
-                          color: textColor,
-                          fontSize: getProportionateResponsiveSize(16),
-                          fontWeight: FontWeight.w400)),
+                  child: Text(
+                    'Skip Here',
+                  ).applyStyle(
+                      color: textColor,
+                      fontSize: getProportionateResponsiveSize(16),
+                      fontWeight: FontWeight.w400),
                 ),
               )
             ],
           ),
-          backgroundColor: authBgColor,
           body: GestureDetector(
             onTap: () => FocusScope.of(context).unfocus(),
             child: ListView(
               padding: const EdgeInsets.only(left: 25, right: 25, top: 30),
               children: [
-                Text('Sign up',
-                    style: GoogleFonts.lato(
-                      color: textColor,
-                      fontSize: getProportionateResponsiveSize(34),
-                      fontWeight: FontWeight.w700,
-                    )),
+                Text(
+                  'Sign up',
+                ).applyStyle(
+                  color: textColor,
+                  fontSize: getProportionateResponsiveSize(34),
+                  fontWeight: FontWeight.w700,
+                ),
                 SizedBox(
                   height: getProportionateScreenHeight(15),
                 ),
-                Text('Complete the required registration details',
-                    style: GoogleFonts.lato(
-                      color: textColor,
-                      fontSize: getProportionateResponsiveSize(15),
-                      fontWeight: FontWeight.w400,
-                    )),
+                Text(
+                  'Complete the required registration details',
+                ).applyStyle(
+                  color: textColor,
+                  fontSize: getProportionateResponsiveSize(15),
+                  fontWeight: FontWeight.w400,
+                ),
                 SizedBox(
                   height: getProportionateScreenHeight(25),
                 ),
@@ -115,12 +116,13 @@ class _SignUpState extends State<SignUp> {
                     ),
                     Padding(
                       padding: const EdgeInsets.only(bottom: 4),
-                      child: Text('or continue with',
-                          style: GoogleFonts.lato(
-                            color: textColor3,
-                            fontSize: getProportionateResponsiveSize(13),
-                            fontWeight: FontWeight.w400,
-                          )),
+                      child: Text(
+                        'or continue with',
+                      ).applyStyle(
+                        color: textColor3,
+                        fontSize: getProportionateResponsiveSize(13),
+                        fontWeight: FontWeight.w400,
+                      ),
                     ),
                     SizedBox(
                       width: getProportionateScreenWidth(12),
@@ -166,23 +168,25 @@ class _SignUpState extends State<SignUp> {
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text('Already have an Account?',
-                        style: GoogleFonts.lato(
-                          color: textColor,
-                          fontSize: getProportionateResponsiveSize(16),
-                          fontWeight: FontWeight.w500,
-                        )),
+                    Text(
+                      'Already have an Account?',
+                    ).applyStyle(
+                      color: textColor,
+                      fontSize: getProportionateResponsiveSize(16),
+                      fontWeight: FontWeight.w500,
+                    ),
                     SizedBox(
                       height: getProportionateScreenHeight(17),
                     ),
                     Row(
                       children: [
-                        Text('LOGIN',
-                            style: GoogleFonts.lato(
-                              color: Color(0xFFF15A24),
-                              fontSize: getProportionateResponsiveSize(16),
-                              fontWeight: FontWeight.w500,
-                            )),
+                        Text(
+                          'LOGIN',
+                        ).applyStyle(
+                          color: primaryColor,
+                          fontSize: getProportionateResponsiveSize(16),
+                          fontWeight: FontWeight.w500,
+                        ),
                         SizedBox(
                           width: getProportionateResponsiveSize(2),
                         ),
@@ -238,11 +242,11 @@ class _SignUpState extends State<SignUp> {
           Container(
             child: Text(
               '1',
-              style: GoogleFonts.mulish(
-                color: randomColor,
-                fontSize: 12,
-                fontWeight: FontWeight.w500,
-              ),
+              style: GoogleFonts.mulish(),
+            ).applyStyle(
+              color: randomColor,
+              fontSize: 12,
+              fontWeight: FontWeight.w500,
             ),
             padding: EdgeInsets.all(8),
             decoration: BoxDecoration(
@@ -264,11 +268,11 @@ class _SignUpState extends State<SignUp> {
           Container(
             child: Text(
               '2',
-              style: GoogleFonts.mulish(
-                color: randomColor,
-                fontSize: 12,
-                fontWeight: FontWeight.w500,
-              ),
+              style: GoogleFonts.mulish(),
+            ).applyStyle(
+              color: randomColor,
+              fontSize: 12,
+              fontWeight: FontWeight.w500,
             ),
             padding: EdgeInsets.all(8),
             decoration: BoxDecoration(
@@ -290,11 +294,11 @@ class _SignUpState extends State<SignUp> {
           Container(
             child: Text(
               '3',
-              style: GoogleFonts.mulish(
-                color: randomColor,
-                fontSize: 12,
-                fontWeight: FontWeight.w500,
-              ),
+              style: GoogleFonts.mulish(),
+            ).applyStyle(
+              color: randomColor,
+              fontSize: 12,
+              fontWeight: FontWeight.w500,
             ),
             padding: EdgeInsets.all(8),
             decoration: BoxDecoration(

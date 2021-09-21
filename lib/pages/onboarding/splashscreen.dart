@@ -2,7 +2,7 @@ import 'package:cloudfift_assessment/pages/onboarding/viewmodels/splashscreen_vi
 import 'package:flutter/material.dart';
 import 'package:cloudfift_assessment/utils/colors.dart';
 import 'package:cloudfift_assessment/utils/size_config.dart';
-import 'package:google_fonts/google_fonts.dart';
+import 'package:cloudfift_assessment/utils/theme.dart';
 import 'package:stacked/stacked.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -105,19 +105,17 @@ class _SplashScreenState extends State<SplashScreen> {
                   Padding(
                     padding:
                         const EdgeInsets.only(right: 30, left: 30, bottom: 10),
-                    child: Wrap(
-                      children: [
-                        Text(
-                            'Nam eget molestie tincidunt massa morbi dolor quam tortor mi. Proin urna vitae facilisis tincidunt. ',
-                            softWrap: true,
-                            textAlign: TextAlign.center,
-                            style: GoogleFonts.lato(
-                                color: Colors.white,
-                                fontSize: getProportionateResponsiveSize(13),
-                                height: 1.4,
-                                fontWeight: FontWeight.w400)),
-                      ],
-                    ),
+                    child: Text(
+                      'Nam eget molestie tincidunt massa morbi dolor quam tortor mi. Proin urna vitae facilisis tincidunt. ',
+                      softWrap: true,
+                      textAlign: TextAlign.center,
+                    )
+                        .applyStyle(
+                            color: Colors.white,
+                            fontSize: getProportionateResponsiveSize(13),
+                            fontWeight: FontWeight.w400,
+                            height: 1.4)
+                        .wrapCenter(),
                   ),
                 ],
               )

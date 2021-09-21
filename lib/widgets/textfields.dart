@@ -26,21 +26,12 @@ class _DefaultTextfieldState extends State<DefaultTextfield> {
       autocorrect: false,
       autovalidateMode: AutovalidateMode.disabled,
       decoration: InputDecoration(
-        contentPadding: EdgeInsets.all(13),
-        fillColor: Colors.white,
-        filled: true,
         hintText: widget.title,
         hintStyle: GoogleFonts.lato(
           color: Color(0xFF9E9E9E),
           fontSize: getProportionateResponsiveSize(16),
           fontWeight: FontWeight.w500,
         ),
-        enabledBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(6),
-            borderSide: BorderSide(color: Color(0xFFC5CEE0))),
-        focusedBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(6),
-            borderSide: BorderSide(color: Color(0xFFC5CEE0))),
       ),
     );
   }
@@ -84,14 +75,17 @@ class _SearchTextfieldState extends State<SearchTextfield> {
                     fontWeight: FontWeight.w500,
                   ),
                   cursorColor: Colors.black,
-                  decoration: InputDecoration.collapsed(
-                    hintStyle: GoogleFonts.lato(
-                      color: Color(0xFF9E9E9E),
-                      fontSize: getProportionateResponsiveSize(16),
-                      fontWeight: FontWeight.w500,
-                    ),
-                    hintText: 'What are you going to do today?',
-                  )),
+                  decoration: InputDecoration(
+                      contentPadding: EdgeInsets.zero,
+                      hintText: 'What are you going to do today?',
+                      hintStyle: GoogleFonts.lato(
+                        color: Color(0xFF9E9E9E),
+                        fontSize: getProportionateResponsiveSize(16),
+                        fontWeight: FontWeight.w500,
+                      ),
+                      border: InputBorder.none,
+                      enabledBorder: InputBorder.none,
+                      focusedBorder: InputBorder.none)),
             ),
             Padding(
                 padding: const EdgeInsets.only(right: 7),

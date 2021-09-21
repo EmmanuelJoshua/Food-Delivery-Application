@@ -1,7 +1,7 @@
 import 'package:cloudfift_assessment/utils/colors.dart';
 import 'package:cloudfift_assessment/utils/size_config.dart';
+import 'package:cloudfift_assessment/utils/theme.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class DefaultButton extends StatelessWidget {
@@ -28,12 +28,11 @@ class DefaultButton extends StatelessWidget {
         elevation: 0,
         child: Text(
           text,
-          style: GoogleFonts.lato(
-            fontSize: getProportionateResponsiveSize(
-                17), //getProportionateScreenHeight(20),
-            fontWeight: FontWeight.w700,
-            color: Colors.white,
-          ),
+        ).applyStyle(
+          fontSize: getProportionateResponsiveSize(
+              17), //getProportionateScreenHeight(20),
+          fontWeight: FontWeight.w700,
+          color: Colors.white,
         ),
       ),
     );
@@ -67,11 +66,10 @@ class DefaultButtonOutlined extends StatelessWidget {
         elevation: 0,
         child: Text(
           text,
-          style: GoogleFonts.lato(
-            fontSize: 18, // getProportionateScreenHeight(20),
-            fontWeight: FontWeight.w700,
-            color: Colors.white,
-          ),
+        ).applyStyle(
+          fontSize: 18, // getProportionateScreenHeight(20),
+          fontWeight: FontWeight.w700,
+          color: Colors.white,
         ),
       ),
     );
@@ -120,12 +118,11 @@ class DefaultButtonIcon extends StatelessWidget {
               ),
               Text(
                 text,
-                style: GoogleFonts.lato(
-                  fontSize: getProportionateResponsiveSize(
-                      17), //getProportionateScreenHeight(20),
-                  fontWeight: FontWeight.w700,
-                  color: isLight ? Colors.white : textColor2,
-                ),
+              ).applyStyle(
+                fontSize: getProportionateResponsiveSize(
+                    17), //getProportionateScreenHeight(20),
+                fontWeight: FontWeight.w700,
+                color: isLight ? Colors.white : textColor2,
               ),
             ],
           ),
@@ -183,12 +180,11 @@ class DefaultButtonSocial extends StatelessWidget {
               ),
               Text(
                 text,
-                style: GoogleFonts.lato(
-                  fontSize: getProportionateResponsiveSize(
-                      17), //getProportionateScreenHeight(20),
-                  fontWeight: FontWeight.w700,
-                  color: color != null ? Colors.white : textColor2,
-                ),
+              ).applyStyle(
+                fontSize: getProportionateResponsiveSize(
+                    17), //getProportionateScreenHeight(20),
+                fontWeight: FontWeight.w700,
+                color: color != null ? Colors.white : textColor2,
               ),
             ],
           ),

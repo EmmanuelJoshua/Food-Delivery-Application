@@ -2,9 +2,9 @@ import 'dart:ui';
 
 import 'package:cloudfift_assessment/utils/colors.dart';
 import 'package:cloudfift_assessment/utils/size_config.dart';
+import 'package:cloudfift_assessment/utils/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class FoodCard extends StatelessWidget {
   const FoodCard({
@@ -56,11 +56,10 @@ class FoodCard extends StatelessWidget {
                             child: Center(
                               child: Text(
                                 '30-40mins',
-                                style: GoogleFonts.lato(
-                                  color: Colors.white,
-                                  fontSize: getProportionateResponsiveSize(13),
-                                  fontWeight: FontWeight.w400,
-                                ),
+                              ).applyStyle(
+                                color: Colors.white,
+                                fontSize: getProportionateResponsiveSize(13),
+                                fontWeight: FontWeight.w400,
                               ),
                             ),
                           ))),
@@ -71,11 +70,10 @@ class FoodCard extends StatelessWidget {
                         left: 12,
                         child: Text(
                           '10% off',
-                          style: GoogleFonts.lato(
-                            color: Colors.white,
-                            fontSize: getProportionateResponsiveSize(18),
-                            fontWeight: FontWeight.w700,
-                          ),
+                        ).applyStyle(
+                          color: Colors.white,
+                          fontSize: getProportionateResponsiveSize(18),
+                          fontWeight: FontWeight.w700,
                         ),
                       )
                     : Container(),
@@ -94,19 +92,17 @@ class FoodCard extends StatelessWidget {
                   children: [
                     Text(
                       foodName,
-                      style: GoogleFonts.lato(
-                        color: textColor2,
-                        fontSize: getProportionateResponsiveSize(15),
-                        fontWeight: FontWeight.w700,
-                      ),
+                    ).applyStyle(
+                      color: textColor2,
+                      fontSize: getProportionateResponsiveSize(15),
+                      fontWeight: FontWeight.w700,
                     ),
                     Text(
                       '₦ 2,000',
-                      style: GoogleFonts.lato(
-                        color: textColor2,
-                        fontSize: getProportionateResponsiveSize(15),
-                        fontWeight: FontWeight.w700,
-                      ),
+                    ).applyStyle(
+                      color: textColor2,
+                      fontSize: getProportionateResponsiveSize(15),
+                      fontWeight: FontWeight.w700,
                     ),
                   ],
                 ),
@@ -118,11 +114,10 @@ class FoodCard extends StatelessWidget {
                   children: [
                     Text(
                       'kilimanjaro',
-                      style: GoogleFonts.lato(
-                        color: Color(0xFF9E9E9E),
-                        fontSize: getProportionateResponsiveSize(13),
-                        fontWeight: FontWeight.w400,
-                      ),
+                    ).applyStyle(
+                      color: Color(0xFF9E9E9E),
+                      fontSize: getProportionateResponsiveSize(13),
+                      fontWeight: FontWeight.w400,
                     ),
                     Row(
                       children: [
@@ -136,11 +131,10 @@ class FoodCard extends StatelessWidget {
                         ),
                         Text(
                           '5.0',
-                          style: GoogleFonts.lato(
-                            color: Color(0xFF9E9E9E),
-                            fontSize: getProportionateResponsiveSize(13),
-                            fontWeight: FontWeight.w400,
-                          ),
+                        ).applyStyle(
+                          color: Color(0xFF9E9E9E),
+                          fontSize: getProportionateResponsiveSize(13),
+                          fontWeight: FontWeight.w400,
                         ),
                       ],
                     ),
@@ -208,11 +202,10 @@ class RestaurantCard extends StatelessWidget {
                   children: [
                     Text(
                       restaurantName,
-                      style: GoogleFonts.lato(
-                        color: textColor2,
-                        fontSize: getProportionateResponsiveSize(16),
-                        fontWeight: FontWeight.w700,
-                      ),
+                    ).applyStyle(
+                      color: textColor2,
+                      fontSize: getProportionateResponsiveSize(16),
+                      fontWeight: FontWeight.w700,
                     ),
                     Row(
                       children: [
@@ -226,11 +219,10 @@ class RestaurantCard extends StatelessWidget {
                         ),
                         Text(
                           '5.0',
-                          style: GoogleFonts.lato(
-                            color: Color(0xFF9E9E9E),
-                            fontSize: getProportionateResponsiveSize(14),
-                            fontWeight: FontWeight.w400,
-                          ),
+                        ).applyStyle(
+                          color: Color(0xFF9E9E9E),
+                          fontSize: getProportionateResponsiveSize(14),
+                          fontWeight: FontWeight.w400,
                         ),
                       ],
                     ),
@@ -243,11 +235,10 @@ class RestaurantCard extends StatelessWidget {
                   children: [
                     Text(
                       'Fast food',
-                      style: GoogleFonts.lato(
-                        color: Color(0xFF9E9E9E),
-                        fontSize: getProportionateResponsiveSize(13),
-                        fontWeight: FontWeight.w400,
-                      ),
+                    ).applyStyle(
+                      color: Color(0xFF9E9E9E),
+                      fontSize: getProportionateResponsiveSize(13),
+                      fontWeight: FontWeight.w400,
                     ),
                     SizedBox(
                       width: getProportionateResponsiveSize(3),
@@ -262,11 +253,10 @@ class RestaurantCard extends StatelessWidget {
                     ),
                     Text(
                       'Drinks',
-                      style: GoogleFonts.lato(
-                        color: Color(0xFF9E9E9E),
-                        fontSize: getProportionateResponsiveSize(13),
-                        fontWeight: FontWeight.w400,
-                      ),
+                    ).applyStyle(
+                      color: Color(0xFF9E9E9E),
+                      fontSize: getProportionateResponsiveSize(13),
+                      fontWeight: FontWeight.w400,
                     ),
                   ],
                 )

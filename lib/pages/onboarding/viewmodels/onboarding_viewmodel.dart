@@ -7,6 +7,6 @@ class OnboardingViewModel extends ChangeNotifier {
   final NavigationService _navigationService = locator<NavigationService>();
 
   void toSignup() {
-    _navigationService.navigateToReplace(SignupViewRoute);
+    _navigationService.navigateTo(SignupViewRoute);
   }
 }

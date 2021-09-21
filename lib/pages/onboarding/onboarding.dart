@@ -1,7 +1,7 @@
 import 'package:cloudfift_assessment/pages/onboarding/viewmodels/onboarding_viewmodel.dart';
 import 'package:cloudfift_assessment/utils/size_config.dart';
+import 'package:cloudfift_assessment/utils/theme.dart';
 import 'package:cloudfift_assessment/widgets/buttons.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:stacked/stacked.dart';
@@ -54,44 +54,34 @@ class _OnboardingState extends State<Onboarding> {
                           ),
                     SizedBox(
                       width: getProportionateScreenWidth(330),
-                      child: Wrap(
-                        children: [
-                          Center(
-                            child: Text(
-                                'Yori is here to serve you anytime anyday. ',
-                                softWrap: true,
-                                textAlign: TextAlign.center,
-                                style: GoogleFonts.lato(
-                                    color: Colors.white,
-                                    fontSize:
-                                        getProportionateResponsiveSize(25),
-                                    height: 1.2,
-                                    fontWeight: FontWeight.w700)),
-                          ),
-                        ],
-                      ),
+                      child: Text(
+                        'Yori is here to serve you anytime anyday. ',
+                        softWrap: true,
+                        textAlign: TextAlign.center,
+                      )
+                          .applyStyle(
+                              color: Colors.white,
+                              fontSize: getProportionateResponsiveSize(25),
+                              height: 1.2,
+                              fontWeight: FontWeight.w700)
+                          .wrapCenter(),
                     ),
                     SizedBox(
                       height: getProportionateScreenHeight(15),
                     ),
                     SizedBox(
                       width: getProportionateScreenWidth(225),
-                      child: Wrap(
-                        children: [
-                          Center(
-                            child: Text(
-                                'Qualified caterers ready to cater for your parties anytime anyday. ',
-                                softWrap: true,
-                                textAlign: TextAlign.center,
-                                style: GoogleFonts.lato(
-                                    color: Colors.white,
-                                    fontSize:
-                                        getProportionateResponsiveSize(14),
-                                    height: 1.4,
-                                    fontWeight: FontWeight.w500)),
-                          ),
-                        ],
-                      ),
+                      child: Text(
+                        'Qualified caterers ready to cater for your parties anytime anyday. ',
+                        softWrap: true,
+                        textAlign: TextAlign.center,
+                      )
+                          .applyStyle(
+                              color: Colors.white,
+                              fontSize: getProportionateResponsiveSize(14),
+                              height: 1.4,
+                              fontWeight: FontWeight.w500)
+                          .wrapCenter(),
                     ),
                     SizedBox(
                       height: getProportionateScreenHeight(15),
@@ -130,20 +120,3 @@ class _OnboardingState extends State<Onboarding> {
     );
   }
 }
-
-//           SizedBox(
-//             height: 20,
-//           ),
-//           SizedBox(
-//             width: 130,
-//             child: DefaultButtonIcon(
-//               text: 'Restaurant',
-//               iconAsset: 'assets/icon_images/dish2_icon.svg',
-//               color: buttonTwoColor,
-//               isLight: false,
-//             ),
-//           ),
-//           SizedBox(
-//             height: 20,
-//           ),
-        
