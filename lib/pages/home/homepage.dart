@@ -36,7 +36,6 @@ class _HomePageState extends State<HomePage> {
               backgroundColor: Colors.white,
               titleSpacing: 0.0,
               automaticallyImplyLeading: false,
-              toolbarHeight: 60,
               title: GestureDetector(
                 onTap: () => FocusScope.of(context).unfocus(),
                 child: Column(
@@ -118,26 +117,26 @@ class _HomePageState extends State<HomePage> {
                   ],
                 ),
               ),
-              bottom: PreferredSize(
-                  preferredSize: Size.fromHeight(140.0),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 19),
-                        child: SearchTextfield(),
-                      ),
-                      SizedBox(
-                        height: 18,
-                      ),
-                      //For building the categories selection widget
-                      _buildCategories(model),
-                      SizedBox(
-                        height: 10,
-                      ),
-                    ],
-                  )),
+              // bottom: PreferredSize(
+              //     preferredSize: Size.fromHeight(140.0),
+              //     child: Column(
+              //       mainAxisAlignment: MainAxisAlignment.start,
+              //       crossAxisAlignment: CrossAxisAlignment.start,
+              //       children: [
+              //         Padding(
+              //           padding: const EdgeInsets.symmetric(horizontal: 19),
+              //           child: SearchTextfield(),
+              //         ),
+              //         SizedBox(
+              //           height: 18,
+              //         ),
+              //         //For building the categories selection widget
+              //         _buildCategories(model),
+              //         SizedBox(
+              //           height: 10,
+              //         ),
+              //       ],
+              //     )),
             ),
             SliverFillRemaining(
               child: GestureDetector(
@@ -145,6 +144,28 @@ class _HomePageState extends State<HomePage> {
                 child: SingleChildScrollView(
                   child: Column(
                     children: [
+                      //Search textfield and Categories selection
+                      Column(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          SizedBox(
+                            height: 17,
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.symmetric(horizontal: 19),
+                            child: SearchTextfield(),
+                          ),
+                          SizedBox(
+                            height: 13,
+                          ),
+                          //For building the categories selection widget
+                          _buildCategories(model),
+                          SizedBox(
+                            height: 10,
+                          ),
+                        ],
+                      ),
                       //For building the first banner widget
                       _buildBanner(),
                       ...[
